@@ -1,0 +1,42 @@
+@media (max-width: 767px) {
+	.navbar-brand {
+		padding: 5px;
+	}
+
+	.container-main {
+		padding-top: 50px;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+		color: #fff;
+	    font-size: 11px;
+    	line-height: 16px;
+	}
+
+	.user-dropdown {
+	    .avatar {
+	    	height: 40px;
+	    }
+	}
+}
+
+@media (min-width: 768px) {
+	#mainNav {
+		.user-dropdown {
+		    vertical-align: sub;
+		    padding-left: 60px;
+		    position: relative;
+		    background: #333;
+
+		    .avatar {
+		    	position: absolute;
+		    	left: 0;
+		    	top: 0;
+		    }
+		}
+
+		.open>.user-dropdown {
+			background-color: #e7e7e7;
+		}
+	}
+}

@@ -1,0 +1,180 @@
+@import 'font-awesome';
+@import 'bootstrap';
+@import 'vendor/bootstrap';
+@import 'vendor/theme';
+
+$color-brown: #191411;
+$color-yellow: #f9b015;
+$color-light-gray: #efefef;
+$color-red: #F44336;
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.dropdown-menu {
+	background: $color-brown;
+}
+
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus {
+	background: $color-brown;
+}
+
+.modal-header,
+.modal-footer {
+	border: none;
+	padding: 30px;
+}
+
+.modal-header {
+    border-top: 7px solid $color-yellow;
+}
+
+.modal-footer {
+    background: $color-light-gray;
+}
+
+.modal-body {
+	padding-bottom: 45px;
+}
+
+.form-control {
+    height: auto;
+    padding: 12px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33333;
+    border-radius: 3px;
+}
+
+.btn-primary {
+	&:focus,
+	&:hover,
+	&:active {
+		background: $color-yellow;
+	}
+}
+
+.btn-primary:active:hover,
+.btn-primary:active:focus,
+.btn-primary:active.focus,
+.btn-primary.active:hover,
+.btn-primary.active:focus,
+.btn-primary.active.focus,
+.open>.btn-primary.dropdown-toggle:hover,
+.open>.btn-primary.dropdown-toggle:focus,
+.open>.btn-primary.dropdown-toggle.focus {
+	background: $color-yellow;
+}
+
+.btn-lg,
+.btn-group-lg>.btn,
+.btn {
+	border-radius: 3px;
+}
+
+.btn {
+	border-color: transparent !important;
+}
+
+.navbar-brand {
+	padding: 0;
+}
+
+.container-main {
+	padding-top: 100px;
+}
+
+.yellow-content {
+	background: $color-yellow;
+	color: #fff;
+}
+
+.box {
+	background: #fff;
+    color: #333;
+    margin-bottom: 30px;
+    border-top: 5px solid #231c16;
+
+	&__head,
+    &__content,
+    &__footer {
+    	padding: 30px;
+    }
+
+    &__head {
+		h1,
+		h2,
+		h3 {
+			margin: 0;
+		}
+    }
+
+    &__footer {
+		background: $color-light-gray;
+    }
+}
+
+.btn-default {
+	border-color: #231C16 !important;
+}
+
+.marged-top {
+	margin-top: 30px !important;
+}
+
+.marged-bottom {
+	margin-bottom: 30px !important;
+}
+
+.form-group {
+	.error {
+		color: $color-red;
+		margin-top: 5px;
+		font-size: 10px;
+		text-align: right;
+
+		ul {
+			padding: 0;
+			margin: 0;
+			li {
+				list-style: none;
+			}
+		}
+	}
+}
+
+.navbar-fixed-top {
+	-webkit-transition: padding 0s;
+	-o-transition: padding 0s;
+	transition: padding 0s;
+}
+
+.modal-open {
+	.navbar-fixed-top {
+		padding-right: 15px;
+	}
+}
+
+.dropdown-menu>li>a {
+	padding: 10px 20px;
+}
+
+.avatar {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	background-position: center;
+	background-size: cover;
+}
+
+.box-profile {
+	.avatar {
+		width: 200px;
+		height: 200px;
+	}
+}
+
+@import 'responsive';

@@ -1,0 +1,43 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="yellow-content">
+		<div class="container container-main">
+			<div class="col-xs-12 col-md-8 col-md-offset-2">
+				<div class="box marged-top box-profile">
+					<div class="box__head">
+						<h1>
+							<div class="text-center">
+								{{ user }}
+							</div>
+						</h1>
+					</div>
+
+					<div class="box__content">
+						<div class="row">
+							<div class="col-xs-12 col-md-4">
+								<div class="avatar" style="background-image: url('{{ vich_uploader_asset(app.user, 'avatarFile') }}')"></div>
+							</div>
+
+							<div class="col-xs-12 col-md-8">
+
+							</div>
+						</div>
+					</div>
+
+					<div class="box__footer">
+						<div class="row">
+							<div class="col-xs-12 col-md-6 col-md-offset-6">
+								<a href="{{ path('fos_user_profile_edit') }}" class="btn btn-primary btn-block btn-lg">
+				                	{{ 'editer'|trans }}
+				                </a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

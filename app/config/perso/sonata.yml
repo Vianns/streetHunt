@@ -1,0 +1,36 @@
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+        sonata.admin.block.stats:
+            contexts:   [admin]
+        sonata.admin.block.search_result:
+            contexts:   [admin]
+
+sonata_admin:
+    title: 'StreetHunt'
+    title_logo: assets/f/img/logo-b.png
+    templates:
+        layout: /admin/layout.html.twig
+    assets:
+        stylesheets:
+            # Defaults:
+            - bundles/sonatacore/vendor/bootstrap/dist/css/bootstrap.min.css
+            - bundles/sonatacore/vendor/components-font-awesome/css/font-awesome.min.css
+            - bundles/sonatacore/vendor/ionicons/css/ionicons.min.css
+            - bundles/sonataadmin/vendor/admin-lte/dist/css/AdminLTE.min.css
+            - bundles/sonataadmin/vendor/admin-lte/dist/css/skins/skin-black.min.css
+            - bundles/sonataadmin/vendor/iCheck/skins/square/blue.css
+            - bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css
+            - bundles/sonataadmin/vendor/jqueryui/themes/base/jquery-ui.css
+            - bundles/sonatacore/vendor/select2/select2.css
+            - bundles/sonatacore/vendor/select2-bootstrap-css/select2-bootstrap.min.css
+            - bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css
+            - bundles/sonataadmin/css/styles.css
+            - bundles/sonataadmin/css/layout.css
+            - bundles/sonataadmin/css/tree.css
+            - bundles/sonataadmin/css/colors.css
+
+            # Customs:
+            - assets/a/css/main.css

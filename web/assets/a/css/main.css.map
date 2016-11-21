@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,SAAU,CACT,SAAS,CAAE,IAAI",
+"sources": ["../../../../app/Resources/assets/admin/sass/main.scss"],
+"names": [],
+"file": "main.css"
+}

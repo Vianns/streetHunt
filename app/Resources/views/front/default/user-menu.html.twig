@@ -1,0 +1,22 @@
+{% if logged %}
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle user-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="avatar hidden-xs" style="background-image: url({{ vich_uploader_asset(app.user, 'avatarFile') }})"></span>
+            {{app.user.username}} <span class="caret"></span>
+        </a>
+
+        <ul class="dropdown-menu">
+            <li><a href="{{ path('fos_user_profile_show') }}">Mon profil</a></li>
+            <li role="separator" class="divider"></li>
+            <li>
+                <a href="{{ path("fos_user_security_logout") }}">
+                    <i class="fa fa-power-off"></i> se déconnecter
+                </a>
+            </li>
+        </ul>
+    </li>
+{% else %}
+    <li class="page-scroll">
+        <a href="#" data-toggle="modal" data-target="#connectModal">Connexion</a>
+    </li>
+{% endif %}
