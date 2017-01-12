@@ -1,0 +1,18 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>{{ user }}</h1>
+
+    <div class="box">
+        <div class="box-user-img-avatar" style="background-image:url('{{ vich_uploader_asset(user, 'avatarFile') }}')">
+
+        </div>
+
+        <div class="box-user-img-picture" style="background-image:url('{{ vich_uploader_asset(user, 'pictureFile') }}')">
+
+        </div>
+
+        {% include 'admin/user/form.html.twig' %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>{{ session.name }}</h1>
+
+    <div class="box">
+        {% include 'admin/session/form.html.twig' %}
+    </div>
+
+    <h2>Participants</h2>
+
+	<table class="dynatable table table-striped table-bordered table-hover" data-dynatable>
+  		<thead>
+    		<tr>
+    			<th>ID</th>
+    			<th>Username</th>
+    			<th>code</th>
+      			<th>Etat</th>
+      			<th>Actions</th>
+    		</tr>
+  		</thead>
+
+  		<tbody>
+  			{% for sessionUser in session.sessionUsers %}
+	  			<tr>
+	  				<td>{{ sessionUser.id }}</td>
+	  				<td>{{ sessionUser.user.username }}</td>
+	  				<td>{{ sessionUser.code }}</td>
+	  				<td></td>
+	  				<td>
+	  					<a href="#" class="btn btn-xs btn-default">edit</a>
+	  					<a href="{{ url('admin_user_edit', {'id' : sessionUser.user.id }) }}" class="btn btn-xs btn-default">voir l'utilisateur</a>
+	  				</td>
+	  			</tr>
+    		{% endfor %}
+  		</tbody>
+	</table>
+
+{% endblock %}

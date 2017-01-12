@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "poiret";
+  src: url('../fonts/PoiretOne-Regular.ttf');
+}
+
+$color-primary: #20B8F6;
+$color-default: #2D2D2D;
+$color-dark: darken($color-default, 10%);
+$color-success: #5cb85c;
+$color-warning: #f0ad4e;
+$color-danger: #d9534f;
+$color-info: #5bc0de;
+$color-gray: #aaa;
+$color-dark-gray: darken($color-gray, 10%);
+$color-light-gray: #ececec;
+$color-yellow: #FFB810;
+$color-orange: #f60;
+$color-red: #f00;
+
+html,
+body {
+	height: 100%;
+}
+
+
+
+.logo {
+	 h1 {
+	    text-align: left;
+    	padding: 0px 15px;
+    	padding-right: 55px;
+    	background: #fff;
+
+	 	img {
+		    height: auto;
+    		width: 100%;
+		}
+	}
+}
+
+#sidebar-menu>ul>li>a.active, #sidebar-menu>ul>li>a.active.subdrop {
+	background: $color-primary !important;
+}
+
+.xdebug-var-dump {
+    position: relative;
+    display: block;
+    z-index: 1000;
+}
+
+.title-brand {
+	font-family: poiret;
+}
+
+.translation-container {
+	overflow: auto;
+}

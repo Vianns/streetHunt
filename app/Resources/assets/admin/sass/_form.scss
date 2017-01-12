@@ -1,0 +1,131 @@
+.form {
+    &__file-block {
+        &__image {
+            width: 100%;
+            margin: 5px 0 0;
+        }
+    }
+
+    &__datetime-separator {
+        margin: 0 5px;
+    }
+
+    & .form-group {
+        .alert {
+            padding: 7px 12px;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.form-filter {
+    background: #4A525F;
+    color: #fff;
+    padding: 15px 15px;
+    box-shadow: inset 0px 0px 20px 0px shade(#4A525F, 80);
+    @include clearfix;
+
+    &--close {
+        display: none;
+    }
+
+    &__title {
+        color: #fff;
+        font-size: 1em;
+        padding: 5px 15px;
+        margin: -15px -15px 10px -15px;
+        background: shade(#4A525F, 30);
+    }
+
+    &.fields-x1 {
+        .form-group {
+            float: none;
+            width: 100%;
+        }
+    }
+    &.fields-x2 {
+        .form-group {
+            width: 50%;
+        }
+    }
+    &.fields-x3,
+    &.fields-x5,
+    &.fields-x6,
+    &.fields-x7,
+    &.fields-x9 {
+        .form-group {
+            width: 33.33%;
+        }
+    }
+    &.fields-x4,
+    &.fields-x8,
+    &.fields-x10 {
+        .form-group {
+            width: 25%;
+        }
+    }
+
+    .form-group {
+        float: left;
+        padding: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+
+    .btns {
+        clear: both;
+        margin: 0;
+        padding: 0;
+        float: right;
+    }
+
+    .filter-date-range {
+        input {
+            margin: 0 0 5px 0;
+        }
+    }
+}
+
+.input-group-addon {
+    border-radius: 0;
+}
+
+.form__evaluation {
+
+    &__question__answers {
+       &__del {
+        margin-top: 22px;
+       }
+        &__drag {
+            z-index: 9;
+            cursor: move;
+            color: $color-dark-gray;
+            position: absolute;
+            top: 50px;
+            left: 9px;
+            &__left {
+                width: 2px;
+            }
+        }
+    }
+
+    &__question__head {
+        background: #4A525F !important;
+        color: #ffffff !important;
+
+        &__drag {
+            color: $color-dark-gray;
+            cursor: move;
+            &__left {
+                cursor: move;
+                color: $color-dark-gray;
+                width: 2px;
+            }
+        }
+    }
+    .ghost {
+      opacity: .5;
+      background: #C8EBFB;
+    }
+}

@@ -1,0 +1,51 @@
+#main {
+	background: $color-brown;
+	color: #fff;
+
+	hr.star-primary {
+	    border-color: #ffffff;
+
+	    &:after {
+		    background-color: $color-brown;
+		    color: #ffffff;
+		}
+	}
+
+	.sp-slide {
+		padding: 20px;
+	}
+
+	.sp-button {
+		border-color: #fff;
+	}
+
+	.sp-selected-button {
+		background: #fff;
+	}
+
+	.session-infos {
+		height: 300px;
+		position: relative;
+
+		.session-info-list {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+
+			li {
+				margin-bottom: 20px;
+
+				.info-title {
+					display: block;
+					text-transform: uppercase;
+					font-size: 10px;
+				}
+
+				.info-number {
+					font-size: 3em;
+					line-height: 43px;
+				}
+			}
+		}
+	}
+}

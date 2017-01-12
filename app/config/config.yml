@@ -86,6 +86,10 @@ fos_user:
 vich_uploader:
     db_driver: orm
     mappings:
+        session_picture:
+            uri_prefix:         /uploads/sessions/pictures
+            upload_destination: '%kernel.root_dir%/../web/uploads/sessions/pictures'
+            delete_on_remove:   true
         user_picture:
             uri_prefix:         /uploads/users/pictures
             upload_destination: '%kernel.root_dir%/../web/uploads/users/pictures'

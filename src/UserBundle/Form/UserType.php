@@ -15,6 +15,10 @@ class UserType extends AbstractType
         $builder->remove('current_password');
         $builder->add('avatarFile', VichImageType::class, ['required' => false]);
         $builder->add('pictureFile', VichImageType::class, ['required' => false]);
+        $builder->add('sex');
+        $builder->add('birthday');
+        $builder->add('phoneNumber');
+        $builder->add('transports');
     }
 
     public function getParent()

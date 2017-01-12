@@ -7,6 +7,9 @@
 
         <ul class="dropdown-menu">
             <li><a href="{{ path('fos_user_profile_show') }}">Mon profil</a></li>
+            {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ url('admin') }}">Admin</a></li>
+            {% endif %}
             <li role="separator" class="divider"></li>
             <li>
                 <a href="{{ path("fos_user_security_logout") }}">

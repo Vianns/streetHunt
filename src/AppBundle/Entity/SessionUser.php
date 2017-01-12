@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="SessionUserRepository")
  * @ORM\Table(name="session_user")
  */
 class SessionUser
@@ -49,6 +49,30 @@ class SessionUser
 
     public function __construct()
     {
+    }
+
+    /**
+     * Set the value of id.
+     *
+     * @param int $id
+     *
+     * @return \AppBundle\Entity\Project
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

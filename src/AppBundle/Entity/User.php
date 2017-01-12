@@ -6,14 +6,25 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="UserRepository")
  * @Vich\Uploadable
  * @ORM\Table(name="user")
  */
 class User extends BaseUser
 {
+    /**
+     * Administrator role.
+     */
+    const ROLE_ADMIN = 'ROLE_ADMIN';
+
+    /**
+     * Basic role.
+     */
+    const ROLE_USER = 'ROLE_USER';
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -29,7 +40,7 @@ class User extends BaseUser
     private $avatarFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string
      */
@@ -43,7 +54,7 @@ class User extends BaseUser
     private $pictureFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string
      */
@@ -105,11 +116,57 @@ class User extends BaseUser
      */
     private $transports;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="first_name", type="string", length=255)
+     */
+    protected $firstName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="last_name", type="string", length=255)
+     */
+    protected $lastName;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="civil_responsability", type="boolean")
+     */
+    private $civilResponsability = false;
+
     public function __construct()
     {
         parent::__construct();
         $this->addresses = new ArrayCollection();
         $this->userSessions = new ArrayCollection();
+        $this->updatedAt = new \DateTime('now');
+    }
+
+    /**
+     * Set the value of id.
+     *
+     * @param int $id
+     *
+     * @return \AppBundle\Entity\Project
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -207,7 +264,7 @@ class User extends BaseUser
      *
      * @return User
      */
-    public function setActive($pictureValidated)
+    public function setPictureValidated($pictureValidated)
     {
         $this->pictureValidated = $pictureValidated;
 
@@ -386,5 +443,90 @@ class User extends BaseUser
     public function getUserSessions()
     {
         return $this->userSessions;
+    }
+
+    /**
+     * Set the value of firstName.
+     *
+     * @param string $firstName
+     *
+     * @return User
+     */
+    public function setFirstname($firstName)
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of firstName.
+     *
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * Set the value of lastName.
+     *
+     * @param string $lastName
+     *
+     * @return User
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of lastName.
+     *
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * Set civilResponsability.
+     *
+     * @param bool $civilResponsability
+     *
+     * @return User
+     */
+    public function setCivilResponsability($civilResponsability)
+    {
+        $this->civilResponsability = $civilResponsability;
+
+        return $this;
+    }
+
+    /**
+     * Get civilResponsability.
+     *
+     * @return bool
+     */
+    public function hasCivilResponsability()
+    {
+        return $this->civilResponsability;
+    }
+
+    /**
+     * Return list of possibles roles.
+     *
+     * @return array
+     */
+    public static function getPossibleRoles()
+    {
+        return [
+            self::ROLE_USER => 'user.role.label.user',
+            self::ROLE_ADMIN => 'user.role.label.administrator',
+        ];
     }
 }

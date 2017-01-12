@@ -1,27 +1,15 @@
-window.$ = require("jquery-easing");
-window.jQuery = require("jquery-easing");
+window.$ = require("jquery");
+window.jQuery = require("jquery");
 
 require('bootstrap-sass');
 
+import { Slider } from './modules/Slider';
+
 $(document).ready( function() {
+    new Slider();
+
     $('[data-toggle="tooltip"]').tooltip({ container: 'body' })
 
-    // jQuery for page scrolling feature - requires jQuery Easing plugin
-    $('.page-scroll a').bind('click', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: ($($anchor.attr('href')).offset().top - 50)
-        }, 1250, 'easeInOutExpo');
-        event.preventDefault();
-    });
-
-    // Highlight the top nav as scrolling occurs
-    $('body').scrollspy({
-        target: '.navbar-fixed-top',
-        offset: 51
-    });
-
-    // We can attach the `fileselect` event to all file inputs on the page
     $(document).on('change', ':file', function() {
         var input = $(this),
             numFiles = input.get(0).files ? input.get(0).files.length : 1,
@@ -30,18 +18,15 @@ $(document).ready( function() {
         input.trigger('fileselect', [numFiles, label]);
     });
 
-    // We can watch for our custom `fileselect` event like this
-    $(document).ready( function() {
-        $(':file').on('fileselect', function(event, numFiles, label) {
+    $(':file').on('fileselect', function(event, numFiles, label) {
 
-            var input = $(this).parents('.input-group').find(':text'),
-                log = numFiles > 1 ? numFiles + ' files selected' : label;
+        var input = $(this).parents('.input-group').find(':text'),
+            log = numFiles > 1 ? numFiles + ' files selected' : label;
 
-            if( input.length ) {
-                input.val(log);
-            } else {
-                if( log ) alert(log);
-            }
-        });
+        if( input.length ) {
+            input.val(log);
+        } else {
+            if( log ) alert(log);
+        }
     });
 });

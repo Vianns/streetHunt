@@ -1,0 +1,41 @@
+.widget-tabbed {
+    background: transparent;
+
+    .nav-tabs {
+        &:first-child {
+            margin-top: 0;
+        }
+
+        li:last-child  {
+            a {
+                margin: 0;
+            }
+        }
+
+        li {
+            &.error {
+                font-weight: 700;
+
+                a, i {
+                    color: #e74c3c;
+                }
+
+                &.active {
+                    a {
+                        background: #e74c3c;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    .tab-content {
+        background: #fff;
+        padding: 15px;
+
+        .user-profile-content {
+            margin: 0;
+        }
+    }
+}

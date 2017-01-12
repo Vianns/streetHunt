@@ -1,0 +1,17 @@
+.canvas-form-container {
+	ul {
+		padding: 0;
+
+		.pilot-canvas-field-list__unit {
+			@include clearfix();
+			margin-bottom: 15px;
+			list-style: none;
+
+			input {
+				width: 300px;
+				display: inline-block;
+				margin-right: 15px;
+			}
+		}
+	}
+}

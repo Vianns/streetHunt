@@ -1,0 +1,186 @@
+{{ form_start(form, {'method': 'post'}) }}
+    <fieldset>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                    {{ form_label(form.firstName) }}
+                    {{ form_widget(form.firstName, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.firstName) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.lastName) }}
+                    {{ form_widget(form.lastName, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.lastName) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email, {'attr' : {'class' : 'form-control'}}) }}
+                    <div class="error">
+                        {{ form_errors(form.email) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.username) }}
+                    {{ form_widget(form.username, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.username) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.sex) }}
+                    {{ form_widget(form.sex, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.sex) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.birthday) }}
+                    {{ form_widget(form.birthday, {'attr' : {'class' : ''}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.birthday) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.phoneNumber) }}
+                    {{ form_widget(form.phoneNumber, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.phoneNumber) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.transports) }}
+                    {{ form_widget(form.transports, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.transports) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6">
+                <div class="row">
+                    <div class="col-xs-12">
+                        {{ form_label(form.avatarFile) }}
+
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <span class="btn btn-primary">
+                                    Parcourir ...{{ form_widget(form.avatarFile, {'attr' : {'class' : 'hidden'}}) }}
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" readonly>
+
+                            <div class="error">
+                                {{ form_errors(form.avatarFile) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        {{ form_label(form.pictureFile) }}
+
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <span class="btn btn-primary">
+                                    Parcourir ...{{ form_widget(form.pictureFile, {'attr' : {'class' : 'hidden'}}) }}
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" readonly>
+
+                            <div class="error">
+                                {{ form_errors(form.pictureFile) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            {{ form_label(form.roles) }}
+                            {{ form_widget(form.roles, {'attr' : {'class' : 'form-control'}}) }}
+
+                            <div class="error">
+                                {{ form_errors(form.roles) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.plainPassword.first) }}
+                            {{ form_widget(form.plainPassword.first, {'attr' : {'class' : 'form-control'}}) }}
+
+                            <div class="error">
+                                {{ form_errors(form.plainPassword.first) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.plainPassword.second) }}
+                            {{ form_widget(form.plainPassword.second, {'attr' : {'class' : 'form-control'}}) }}
+
+                            <div class="error">
+                                {{ form_errors(form.plainPassword.second) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.enabled) }}
+                            {{ form_widget(form.enabled, {'attr' : {'class' : 'form-control'}}) }}
+
+                            <div class="error">
+                                {{ form_errors(form.enabled) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.pictureValidated) }}
+                            {{ form_widget(form.pictureValidated, {'attr' : {'class' : 'form-control'}}) }}
+
+                            <div class="error">
+                                {{ form_errors(form.pictureValidated) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.civilResponsability) }}
+                            {{ form_widget(form.civilResponsability, {'attr' : {'class' : 'form-control'}}) }}
+
+                            <div class="error">
+                                {{ form_errors(form.civilResponsability) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="text-right">
+        <a href="{{ path('admin_user_list') }}" class="btn btn-default">
+            {{ 'retour'|trans }}
+        </a>
+
+        <button class="btn btn-primary" type="submit">
+            {{ 'ok'|trans }}
+        </button>
+    </div>
+{{ form_end(form) }}

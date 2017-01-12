@@ -1,0 +1,31 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+
+	<a href="{{ url('admin_session_new') }}" class="btn btn-primary btn-xs">nouvelle session</a>
+
+    <table class="dynatable table table-striped table-bordered table-hover" data-dynatable>
+  		<thead>
+    		<tr>
+    			<th>ID</th>
+    			<th>Ville</th>
+    			<th>Nom</th>
+      			<th>Etat</th>
+      			<th>Actions</th>
+    		</tr>
+  		</thead>
+
+  		<tbody>
+  			{% for session in sessions %}
+	  			<tr>
+	  				<td>{{ session.id }}</td>
+	  				<td>{{ session.city }}</td>
+	  				<td>{{ session.name }}</td>
+	  				<td></td>
+	  				<td><a href="{{ url('admin_session_edit', {'id' : session.id }) }}" class="btn btn-xs btn-default">edit</a></td>
+	  			</tr>
+    		{% endfor %}
+  		</tbody>
+	</table>
+
+{% endblock %}

@@ -4,9 +4,12 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="SessionRepository")
+ * @Vich\Uploadable
  * @ORM\Table(name="session")
  */
 class Session
@@ -54,6 +57,27 @@ class Session
     private $type;
 
     /**
+     * @Vich\UploadableField(mapping="session_picture", fileNameProperty="pictureName")
+     *
+     * @var File
+     */
+    private $pictureFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $pictureName;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="is_over", type="boolean")
+     */
+    private $isOver = false;
+
+    /**
      * @var ArrayCollection
      *
      * @ORM\OneToMany(targetEntity="SessionUser", mappedBy="session")
@@ -63,6 +87,30 @@ class Session
     public function __construct()
     {
         $this->sessionUsers = new ArrayCollection();
+    }
+
+    /**
+     * Set the value of id.
+     *
+     * @param int $id
+     *
+     * @return \AppBundle\Entity\Project
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -209,5 +257,73 @@ class Session
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
+     *
+     * @return Session
+     */
+    public function setPictureFile(File $image = null)
+    {
+        $this->pictureFile = $image;
+
+        if ($image) {
+            $this->updatedAt = new \DateTime('now');
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getPictureFile()
+    {
+        return $this->pictureFile;
+    }
+
+    /**
+     * @param string $pictureName
+     *
+     * @return Session
+     */
+    public function setPictureName($pictureName)
+    {
+        $this->pictureName = $pictureName;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPictureName()
+    {
+        return $this->pictureName;
+    }
+
+    /**
+     * Set over.
+     *
+     * @param bool $isOver
+     *
+     * @return Session
+     */
+    public function setOver($isOver)
+    {
+        $this->isOver = $isOver;
+
+        return $this;
+    }
+
+    /**
+     * Get is over.
+     *
+     * @return bool
+     */
+    public function isOver()
+    {
+        return $this->isOver;
     }
 }

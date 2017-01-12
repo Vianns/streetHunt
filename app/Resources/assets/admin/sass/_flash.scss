@@ -1,0 +1,33 @@
+.flash {
+    position: fixed;
+    width: auto;
+    right: 20px;
+    z-index: 20;
+
+    .alert {
+        width: auto;
+        float: right;
+        clear: right;
+        box-shadow: 0px 2px 10px rgba(50, 50, 50, 0.5);
+        border-radius: 10px;
+        color: #fff;
+        font-weight: 700;
+        border: none;
+        margin: 5px 0;
+
+        &.alert-success {
+            background: #2ecc71;
+        }
+
+        &.alert-danger {
+            background: #e74c3c;
+        }
+
+        .flash-close {
+            cursor: pointer;
+            margin: 5px 5px 5px 15px;
+            font-size: 1.2em;
+            opacity: 0.6;
+        }
+    }
+}

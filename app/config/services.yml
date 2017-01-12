@@ -8,27 +8,3 @@ services:
         class: UserBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
-
-    app.admin.user:
-        class: AppBundle\Admin\UserAdmin
-        tags:
-            - name: sonata.admin
-              manager_type: orm
-              group: "Content"
-              label: "Users"
-        arguments:
-            - ~
-            - AppBundle\Entity\User
-            - ~
-
-    app.admin.session:
-        class: AppBundle\Admin\SessionAdmin
-        tags:
-            - name: sonata.admin
-              manager_type: orm
-              group: "Content"
-              label: "Sessions"
-        arguments:
-            - ~
-            - AppBundle\Entity\Session
-            - ~

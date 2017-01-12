@@ -2,6 +2,7 @@
 @import 'bootstrap';
 @import 'vendor/bootstrap';
 @import 'vendor/theme';
+@import 'vendor/slider-pro';
 
 $color-brown: #191411;
 $color-yellow: #f9b015;
@@ -67,6 +68,29 @@ img {
 .open>.btn-primary.dropdown-toggle:focus,
 .open>.btn-primary.dropdown-toggle.focus {
 	background: $color-yellow;
+}
+
+.btn-secondary {
+	background: $color-yellow;
+	color: #fff;
+
+	&:focus,
+	&:hover,
+	&:active {
+		background: #fff;
+	}
+}
+
+.btn-secondary:active:hover,
+.btn-secondary:active:focus,
+.btn-secondary:active.focus,
+.btn-secondary.active:hover,
+.btn-secondary.active:focus,
+.btn-secondary.active.focus,
+.open>.btn-secondary.dropdown-toggle:hover,
+.open>.btn-secondary.dropdown-toggle:focus,
+.open>.btn-secondary.dropdown-toggle.focus {
+	background: #fff;
 }
 
 .btn-lg,
@@ -176,5 +200,6 @@ img {
 		height: 200px;
 	}
 }
-
+@import 'details/main';
+@import 'details/session';
 @import 'responsive';
