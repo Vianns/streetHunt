@@ -57,6 +57,7 @@ footer {
     box-shadow: 0px 0px 3px rgba(0,0,0,0.2);
     border-radius: 2px;
     position: relative;
+    margin-bottom: 30px;
 }
 
 .box-user-img-avatar,
@@ -64,14 +65,61 @@ footer {
     position: absolute;
     width: 90px;
     height: 90px;
-    top: -75px;
+    top: -20px;
     right: 20px;
     box-shadow: 0px 0px 3px rgba(0,0,0,0.2);
     background-size: cover;
     background-position: center;
     background-color: #fff;
+    border: 2px solid #fff;
 }
 
-.box-user-img-picture {
-	right: 130px;
+.marged {
+    margin: 30px;
+
+    &-bottom {
+        margin-bottom: 30px;
+    }
+
+    &-top {
+        margin-top: 30px;
+    }
+
+    &-left {
+        margin-left: 30px;
+    }
+
+    &-right {
+        margin-right: 30px;
+    }
+}
+
+.padded {
+    padding: 30px;
+
+    &-bottom {
+        padding-bottom: 30px;
+    }
+
+    &-top {
+        padding-top: 30px;
+    }
+
+    &-left {
+        padding-left: 30px;
+    }
+
+    &-right {
+        padding-right: 30px;
+    }
+}
+
+.box-session-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    border: 2px solid #fff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
 }

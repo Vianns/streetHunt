@@ -3,6 +3,8 @@
 
 var _modulesSlider = require('./modules/Slider');
 
+var _modulesLogin = require('./modules/Login');
+
 window.$ = require("jquery");
 window.jQuery = require("jquery");
 
@@ -10,6 +12,7 @@ require('bootstrap-sass');
 
 $(document).ready(function () {
     new _modulesSlider.Slider();
+    new _modulesLogin.Login();
 
     $('[data-toggle="tooltip"]').tooltip({ container: 'body' });
 
@@ -34,7 +37,58 @@ $(document).ready(function () {
     });
 });
 
-},{"./modules/Slider":2,"bootstrap-sass":3,"jquery":4}],2:[function(require,module,exports){
+},{"./modules/Login":2,"./modules/Slider":3,"bootstrap-sass":4,"jquery":5}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+window.jQuery = require('jquery');
+window.$ = require('jquery');
+
+var Login = (function () {
+    function Login(autobind) {
+        _classCallCheck(this, Login);
+
+        if (undefined === autobind) {
+            autobind = true;
+        }
+
+        if (autobind) {
+            this.bind();
+        }
+    }
+
+    _createClass(Login, [{
+        key: 'bind',
+        value: function bind() {
+            var working = false;
+
+            $('.login-form').on('submit', function (e) {
+                // e.preventDefault();
+
+                if (working) return;
+                working = true;
+
+                var $this = $(this),
+                    $state = $this.find('button > .state');
+                $this.addClass('loading');
+                $state.html('Authenticating');
+            });
+        }
+    }]);
+
+    return Login;
+})();
+
+exports.Login = Login;
+
+},{"jquery":5}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -105,7 +159,7 @@ var Slider = (function () {
 
 exports.Slider = Slider;
 
-},{"jquery":4,"slider-pro":5}],3:[function(require,module,exports){
+},{"jquery":5,"slider-pro":6}],4:[function(require,module,exports){
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -2484,7 +2538,7 @@ if (typeof jQuery === 'undefined') {
 
 }(jQuery);
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.4
  * http://jquery.com/
@@ -12300,7 +12354,7 @@ if ( !noGlobal ) {
 return jQuery;
 }));
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 /*!
 *  - v1.3
 * Homepage: http://bqworks.com/slider-pro/

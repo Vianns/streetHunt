@@ -1,0 +1,73 @@
+{{ form_start(form, {'method': 'post'}) }}
+    <fieldset>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                    {{ form_label(form.session) }}
+                    {{ form_widget(form.session, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.session) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.user) }}
+                    {{ form_widget(form.user, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.user) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.code) }}
+                    {{ form_widget(form.code, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.code) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.target) }}
+                    {{ form_widget(form.target, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.target) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.killedBy) }}
+                    {{ form_widget(form.killedBy, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.killedBy) }}
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="form-group">
+                    {{ form_label(form.status) }}
+                    {{ form_widget(form.status, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.status) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="text-right">
+        <a href="{{ path('admin_session_edit', {'id' : session.id}) }}" class="btn btn-default">
+            {{ 'retour'|trans }}
+        </a>
+
+        <button class="btn btn-primary" type="submit">
+            {{ 'ok'|trans }}
+        </button>
+    </div>
+{{ form_end(form) }}

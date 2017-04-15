@@ -326,4 +326,35 @@ class Session
     {
         return $this->isOver;
     }
+
+    public function getSessionUsersKilled()
+    {
+        $count = 0;
+
+        foreach ($this->getSessionUsers() as $sessionUser) {
+            if (SessionUser::STATUS_KILLED === $sessionUser->getStatus()) {
+                ++$count;
+            }
+        }
+
+        return $count;
+    }
+
+    public function getSessionUsersActive()
+    {
+        $count = 0;
+
+        foreach ($this->getSessionUsers() as $sessionUser) {
+            if (SessionUser::STATUS_REGISTER === $sessionUser->getStatus()) {
+                ++$count;
+            }
+        }
+
+        return $count;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->getName();
+    }
 }

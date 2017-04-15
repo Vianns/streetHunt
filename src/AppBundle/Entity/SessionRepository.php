@@ -19,4 +19,24 @@ class SessionRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('dateNow', $dateNow)
             ->getQuery()->getResult();
     }
+
+    /**
+     * find by user.
+     *
+     * @param [type] $user [description]
+     *
+     * @return [type] [description]
+     */
+    public function findByUser($user)
+    {
+        $result = $this
+            ->createQueryBuilder('s')
+            ->innerJoin('s.sessionUsers', 'su')
+            ->andWhere('su.user = :user')
+            ->setParameter('user', $user)
+            ->setMaxResults(1)
+            ->getQuery()->getResult();
+
+        return 0 === count($result) ? null : $result[0];
+    }
 }

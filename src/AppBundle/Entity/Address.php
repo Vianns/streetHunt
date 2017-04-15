@@ -32,14 +32,14 @@ class Address
     private $postalCode;
 
     /**
-     * @ORM\Column(type="string", name="first_field", length=255)
+     * @ORM\Column(type="string", name="first_field", length=1000)
      *
      * @var string
      */
     private $firstField;
 
     /**
-     * @ORM\Column(type="string", name="second_field", length=255)
+     * @ORM\Column(type="string", name="second_field", length=1000, nullable=true)
      *
      * @var string
      */
@@ -120,8 +120,6 @@ class Address
 
     /**
      * get city.
-     *
-     * @city
      */
     public function getCity()
     {
@@ -140,8 +138,6 @@ class Address
 
     /**
      * get postalCode.
-     *
-     * @returnpostalCode
      */
     public function getPostalCode()
     {
@@ -160,8 +156,6 @@ class Address
 
     /**
      * get firstField.
-     *
-     * @returnfirstField
      */
     public function getFirstField()
     {

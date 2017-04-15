@@ -1,25 +1,18 @@
-{% if logged %}
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle user-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <span class="avatar hidden-xs" style="background-image: url({{ vich_uploader_asset(app.user, 'avatarFile') }})"></span>
-            {{app.user.username}} <span class="caret"></span>
-        </a>
+<div id="logo">
+    <h1 class="image">
+        <img src="{{ asset('assets/f/img/logo-b.png') }}" alt="Street Hunt" title="Street Hunt">
+    </h1>
 
-        <ul class="dropdown-menu">
-            <li><a href="{{ path('fos_user_profile_show') }}">Mon profil</a></li>
-            {% if is_granted('ROLE_ADMIN') %}
-                <li><a href="{{ url('admin') }}">Admin</a></li>
-            {% endif %}
-            <li role="separator" class="divider"></li>
-            <li>
-                <a href="{{ path("fos_user_security_logout") }}">
-                    <i class="fa fa-power-off"></i> se déconnecter
-                </a>
-            </li>
-        </ul>
-    </li>
-{% else %}
-    <li class="page-scroll">
-        <a href="#" data-toggle="modal" data-target="#connectModal">Connexion</a>
-    </li>
-{% endif %}
+    {% if logged %}
+        <span class="">
+            <img src="{{ vich_uploader_asset(app.user, 'avatarFile') }}" alt="" title="" width="50px">
+        </span>
+
+        <h2 id="title">{{app.user.firstName}} {{app.user.lastName}}</h2>
+        <p>{{app.user.username}}</p>
+    {% else %}
+        <h2 id="title">
+            <a href="#" data-toggle="modal" data-target="#connectModal">Connexion</a>
+        </h2>
+    {% endif %}
+</div>

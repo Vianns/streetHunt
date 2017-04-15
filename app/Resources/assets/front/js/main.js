@@ -4,9 +4,11 @@ window.jQuery = require("jquery");
 require('bootstrap-sass');
 
 import { Slider } from './modules/Slider';
+import { Login } from './modules/Login';
 
 $(document).ready( function() {
     new Slider();
+    new Login();
 
     $('[data-toggle="tooltip"]').tooltip({ container: 'body' })
 

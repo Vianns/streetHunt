@@ -6,7 +6,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Session;
-use UserBundle\Form\Admin\SessionType;
+use AppBundle\Entity\SessionUser;
+use AppBundle\Form\Admin\SessionType;
 
 /**
  * @Route("/admin/sessions")
@@ -42,6 +43,7 @@ class SessionController extends Controller
 
         return $this->render('admin/session/new.html.twig', [
             'form' => $form->createView(),
+            'session' => $session,
         ]);
     }
 
@@ -65,5 +67,48 @@ class SessionController extends Controller
             'form' => $form->createView(),
             'session' => $session,
         ]);
+    }
+
+    /**
+     * @Route("/generate-game/{id}", name="admin_session_generate")
+     */
+    public function generateGameAction(Session $session)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        foreach ($session->getSessionUsers() as $sessionUser) {
+            if ($sessionUser->getStatus() !== SessionUser::STATUS_REGISTER) {
+                if (null === $sessionUser->getCode()) {
+                    $sessionUser->setCode(strtoupper($random = substr(md5(rand()), 0, 5)));
+                }
+
+                $sessionUser->setTarget(null);
+                $sessionUser->setKilledBy(null);
+
+                $sessionUser->setStatus(SessionUser::STATUS_VALIDATED);
+
+                $em->persist($sessionUser);
+            }
+        };
+
+        $em->flush();
+
+        foreach ($session->getSessionUsers() as $sessionUser) {
+            if ($sessionUser->getStatus() !== SessionUser::STATUS_REGISTER) {
+                if (null === $sessionUser->getKilledBy()) {
+                    $target = $this->getDoctrine()->getRepository('AppBundle:SessionUser')->findTarget(
+                        $sessionUser->getSession()->getId(),
+                        $sessionUser->getId()
+                    );
+
+                    $sessionUser->setTarget($target);
+
+                    $em->persist($sessionUser);
+                    $em->flush();
+                }
+            }
+        }
+
+        return $this->redirectToRoute('admin_session_edit', ['id' => $session->getId()]);
     }
 }

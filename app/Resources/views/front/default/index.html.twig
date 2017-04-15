@@ -1,34 +1,24 @@
-{% extends 'base.html.twig' %}
+{% extends 'front/layout.html.twig' %}
+
+{% block leftside %}
+    <div class="col-xs-12 col-sm-6 col-md-3">
+        {{ render(controller('AppBundle:Front/User:miniprofil')) }}
+        {{ render(controller('AppBundle:Front/SessionUser:minicard')) }}
+    </div>
+{% endblock %}
 
 {% block body %}
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-text">
-                        <img src="{{ asset('assets/f/img/logo.png') }}" alt="le jeu de vianney" title="le jeu de vianney" style="width: 500px; max-width: 100%;">
-                        <hr class="star-light">
-                        <span class="skills">Un jeu avec des gens et des codes magiques</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <div class="col-xs-12 col-sm-6 col-md-6">
+        {{ render(controller('AppBundle:Front/Session:current')) }}
+        {{ render(controller('AppBundle:Front/Session:currents')) }}
+    </div>
+{% endblock %}
 
-    <section id="main">
-        {{ render(url('session_currents')) }}
-    </section>
-
-    <section id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>About</h2>
-                    <hr class="star-primary">
-                </div>
-            </div>
-        </div>
-    </section>
+{% block rightside %}
+    <div class="col-xs-12 col-sm-6 col-md-3">
+        {{ render(controller('AppBundle:Front/SessionUser:minitarget')) }}
+        {{ render(controller('AppBundle:Front/Notification:actuality')) }}
+    </div>
 {% endblock %}
 
 

@@ -1,0 +1,33 @@
+<div class="box">
+    <h2 class="box-title">
+        Ma carte
+    </h2>
+
+    <div class="box-content">
+		<div class="target">
+			<div class="row">
+				<div class="col-xs-6">
+					<div class="target__picture" style="background-image: url('{{ vich_uploader_asset(sessionUser.user, 'pictureFile') }}')"></div>
+				</div>
+
+				<div class="col-xs-6">
+					<div class="target__name">
+						{{sessionUser.user.firstName}} {{sessionUser.user.lastName}}
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+
+    <h2 class="box-title">
+        Mon code
+    </h2>
+
+    <div class="box-content">
+		<div class="target">
+			<div class="target__code text-center">
+				{{ sessionUser.code }}
+			</div>
+		</div>
+    </div>
+</div>

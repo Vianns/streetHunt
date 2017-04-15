@@ -19,21 +19,61 @@
                         {{ form_errors(form.city) }}
                     </div>
                 </div>
+
+                <div class="form-group">
+                    {{ form_label(form.openAt) }}
+                    {{ form_widget(form.openAt, {'attr' : {'class' : ''}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.openAt) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.startAt) }}
+                    {{ form_widget(form.startAt, {'attr' : {'class' : ''}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.startAt) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.isOver) }}
+                    {{ form_widget(form.isOver, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.isOver) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.type) }}
+                    {{ form_widget(form.type, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.type) }}
+                    </div>
+                </div>
             </div>
 
             <div class="col-xs-12 col-sm-6">
-                {{ form_label(form.pictureFile) }}
+                <div class="form-group">
+                    <div class="box-session-img" style="background-image:url('{{ vich_uploader_asset(session, 'pictureFile') }}')"></div>
 
-                <div class="input-group">
-                    <label class="input-group-btn">
-                        <span class="btn btn-primary">
-                            Parcourir ...{{ form_widget(form.pictureFile, {'attr' : {'class' : 'hidden'}}) }}
-                        </span>
-                    </label>
-                    <input type="text" class="form-control" readonly>
+                    {{ form_label(form.pictureFile) }}
 
-                    <div class="error">
-                        {{ form_errors(form.pictureFile) }}
+                    <div class="input-group">
+                        <label class="input-group-btn">
+                            <span class="btn btn-primary">
+                                Parcourir ...{{ form_widget(form.pictureFile, {'attr' : {'class' : 'hidden'}}) }}
+                            </span>
+                        </label>
+                        <input type="text" class="form-control" readonly>
+
+                        <div class="error">
+                            {{ form_errors(form.pictureFile) }}
+                        </div>
                     </div>
                 </div>
             </div>

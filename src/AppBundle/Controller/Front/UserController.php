@@ -18,4 +18,12 @@ class UserController extends BaseController
             'logged' => $this->container->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY'),
         ]);
     }
+
+    /**
+     * @Route("/mini-profil", name="mini_profil")
+     */
+    public function miniprofilAction(Request $request)
+    {
+        return $this->render('front/user/mini-profil.html.twig');
+    }
 }

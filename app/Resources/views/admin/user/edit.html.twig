@@ -3,16 +3,24 @@
 {% block body %}
     <h1>{{ user }}</h1>
 
-    <div class="box">
-        <div class="box-user-img-avatar" style="background-image:url('{{ vich_uploader_asset(user, 'avatarFile') }}')">
-
-        </div>
-
-        <div class="box-user-img-picture" style="background-image:url('{{ vich_uploader_asset(user, 'pictureFile') }}')">
-
-        </div>
-
+    <div class="admin-user">
         {% include 'admin/user/form.html.twig' %}
+    </div>
+
+    <h2>Adresses</h2>
+
+    <a href="{{ url('admin_address_new', {'id' : user.id }) }}" class="btn btn-default btn-xs marged-bottom">
+        Ajouter une adresse
+    </a>
+
+    {{ render(url('admin_user_address_list', {'id' : user.id })) }}
+
+    <div class="row">
+        {% for address in user.addresses %}
+            <div class="col-xs-12 col-sm-4">
+                {% include 'admin/address/thumb.html.twig' %}
+            </div>
+        {% endfor %}
     </div>
 
 {% endblock %}

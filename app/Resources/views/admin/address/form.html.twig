@@ -1,0 +1,68 @@
+{{ form_start(form, {'method': 'post'}) }}
+    <fieldset>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.name) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+             <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                    {{ form_label(form.firstField) }}
+                    {{ form_widget(form.firstField, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.firstField) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.secondField) }}
+                    {{ form_widget(form.secondField, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.secondField) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6">
+                 <div class="form-group">
+                    {{ form_label(form.postalCode) }}
+                    {{ form_widget(form.postalCode, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.postalCode) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.city) }}
+                    {{ form_widget(form.city, {'attr' : {'class' : 'form-control'}}) }}
+
+                    <div class="error">
+                        {{ form_errors(form.city) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="text-right">
+        <a href="{{ path('admin_user_edit', {'id' : user.id }) }}" class="btn btn-default">
+            {{ 'retour'|trans }}
+        </a>
+
+        <button class="btn btn-primary" type="submit">
+            {{ 'ok'|trans }}
+        </button>
+    </div>
+{{ form_end(form) }}

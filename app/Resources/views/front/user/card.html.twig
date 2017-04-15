@@ -1,0 +1,33 @@
+<div class="user-card">
+	<div class="user-card__left">
+		<ul class="user-card__left__list">
+			<li class="item">
+				Nom
+			</li>
+
+			<li class="info">
+				{{ sessionUser.user.firstName }}
+			</li>
+
+			<li class="item">
+				Prenom
+			</li>
+
+			<li class="info">
+				{{ sessionUser.user.lastName }}
+			</li>
+		</ul>
+	</div>
+
+	<div class="user-card__right">
+		<div class="user-card__right__img" style="background-image: url('{{ vich_uploader_asset(sessionUser.user, 'pictureFile') }}')">
+
+		</div>
+	</div>
+
+	<div class="user-card__bottom">
+		<span class="user-card__bottom__code">
+			{{ sessionUser.code }}
+		</span>
+	</div>
+</div>

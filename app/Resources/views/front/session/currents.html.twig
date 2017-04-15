@@ -1,0 +1,23 @@
+<div class="box marged-bottom">
+    <h2 class="box-title">
+        Les autres parties
+    </h2>
+
+    <div class="box-content">
+        <div class="row">
+            <div class="currents-list">
+                {% for session in sessions %}
+                    <div class="col-xs-12 col-sm-6">
+                        <a href="{{ url('session_show', {'id' : session.id}) }}" class="img-with-title marged-bottom">
+                            <img src="{{ vich_uploader_asset(session, 'pictureFile') }}" alt="" width="100%"/>
+
+                            <span class="session-name img-with-title__title">
+                                {{session.name}}
+                            </span>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

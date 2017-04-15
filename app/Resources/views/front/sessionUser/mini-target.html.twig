@@ -1,0 +1,39 @@
+<div class="box">
+    <h2 class="box-title">
+        Ma cible
+    </h2>
+
+    <div class="box-content">
+		<div class="target">
+			<div class="row">
+				<div class="col-xs-6">
+					<div class="target__picture" style="background-image: url('{{ vich_uploader_asset(target, 'pictureFile') }}')"></div>
+				</div>
+
+				<div class="col-xs-6">
+					<div class="target__name">
+						{{target.firstName}} {{target.lastName}}
+					</div>
+				</div>
+			</div>
+		</div>
+
+    	{{ form_start(form, {'method': 'post', 'action' : path('kill_target')}) }}
+		    <fieldset>
+		        <div class="row">
+		            <div class="col-xs-12">
+		                <div class="form-group">
+		                    {{ form_widget(form.code, {'attr' : {'class' : 'form-control black', 'placeholder' : 'nom de code'}}) }}
+
+		                    <div class="error">
+		                        {{ form_errors(form.code) }}
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </fieldset>
+
+		    <input type="submit" class="btn btn-lg btn-block btn-default" value="valider">
+		{{ form_end(form) }}
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="box">
+    <div class="box-content">
+    	<div class="text-center">
+	        <div class="mini-profil__picture" style="background-image: url('{{ vich_uploader_asset(app.user, 'avatarFile') }}')">
+
+			</div>
+
+			<div class="mini-profil__name">
+				{{ app.user.username }}
+			</div>
+
+			<div class="mini-profil__level">
+				{{ app.user.level }}
+			</div>
+		</div>
+    </div>
+</div>

@@ -9,13 +9,17 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v=1" />
     </head>
     <body id="page-top" class="index" cz-shortcut-listen="true">
-        {% include 'front/default/_menu.html.twig' %}
+        <div id="main">
+            {% include 'front/default/_menu.html.twig' %}
 
-        {% block body %}{% endblock %}
-
-        {% include 'front/default/_footer.html.twig' %}
-
-        {{ render(controller('UserBundle:Security:login')) }}
+            <div class="container">
+                <div class="row">
+                    {% block leftside %}{% endblock %}
+                    {% block body %}{% endblock %}
+                    {% block rightside %}{% endblock %}
+                </div>
+            </div>
+        </div>
 
         {% block javascripts %}{% endblock %}
         <script src="{{ asset('assets/f/js/main.js') }}"></script>

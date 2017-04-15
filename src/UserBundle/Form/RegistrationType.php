@@ -10,7 +10,7 @@ class RegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('avatarFile', VichImageType::class, ['required' => false]);
+        // $builder->add('avatarFile', VichImageType::class, ['required' => false]);
     }
 
     public function getParent()

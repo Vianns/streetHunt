@@ -1,0 +1,9 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>{{ sessionUser.user }}</h1>
+
+    <div class="box">
+        {% include 'admin/sessionUser/form.html.twig' %}
+    </div>
+{% endblock %}

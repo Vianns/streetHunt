@@ -1,14 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends 'front/layout.html.twig' %}
 
 {% block body %}
 
-	<section id="session">
+	<section id="session" class="page-container">
 		<div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>{{ session.name }}</h2>
-                    <hr class="star-primary">
+                    <hr class="star-light">
                 </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-md-8">
+                    <img class="img-thumbnail shadowed"  style="transform: rotate( {{ random(['-2', '-1', '1', '2']) }}deg )" src="{{ vich_uploader_asset(session, 'pictureFile') }}" width="100%">
+                </div>
+
+                {% if userSession is not empty %}
+                    <div class="col-xs-12 col-md-4">
+                        {% include 'front/user/card.html.twig' with { sessionUser : userSession} %}
+                    </div>
+                {% endif %}
             </div>
         </div>
 	</section>

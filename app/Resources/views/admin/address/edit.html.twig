@@ -1,0 +1,9 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>{{ address.name }}</h1>
+
+    <div class="box">
+        {% include 'admin/address/form.html.twig' %}
+    </div>
+{% endblock %}

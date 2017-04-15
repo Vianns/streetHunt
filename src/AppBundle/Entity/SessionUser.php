@@ -10,6 +10,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class SessionUser
 {
+    const STATUS_REGISTER = 0;
+    const STATUS_VALIDATED = 1;
+    const STATUS_KILLED = 2;
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -34,14 +38,28 @@ class SessionUser
     protected $user = null;
 
     /**
-     * @ORM\Column(type="string", name="code", length=255)
+     * @ORM\Column(type="string", name="code", length=255, nullable=true)
      *
      * @var string
      */
     private $code;
 
     /**
-     * @ORM\Column(type="integer", name="status", length=1)
+     * @ORM\Column(type="string", name="target", length=255, nullable=true)
+     *
+     * @var string
+     */
+    private $target;
+
+    /**
+     * @ORM\Column(type="string", name="killed_by", length=255, nullable=true)
+     *
+     * @var string
+     */
+    private $killedBy;
+
+    /**
+     * @ORM\Column(type="integer", name="status", length=1, nullable=true)
      *
      * @var int
      */
@@ -136,6 +154,46 @@ class SessionUser
     }
 
     /**
+     * @param string $target
+     *
+     * @return SessionUser
+     */
+    public function setTarget($target)
+    {
+        $this->target = $target;
+    }
+
+    /**
+     * get target.
+     *
+     * @return target
+     */
+    public function getTarget()
+    {
+        return $this->target;
+    }
+
+    /**
+     * @param string $killedBy
+     *
+     * @return SessionUser
+     */
+    public function setKilledBy($killedBy)
+    {
+        $this->killedBy = $killedBy;
+    }
+
+    /**
+     * get killedBy.
+     *
+     * @return killedBy
+     */
+    public function getKilledBy()
+    {
+        return $this->killedBy;
+    }
+
+    /**
      * @param int $status
      *
      * @return SessionUser
@@ -153,5 +211,50 @@ class SessionUser
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * get statuses.
+     *
+     * @return array statuses
+     */
+    public function getStatuses()
+    {
+        return [
+            self::STATUS_REGISTER => $this->getStatusLabel(self::STATUS_REGISTER),
+            self::STATUS_VALIDATED => $this->getStatusLabel(self::STATUS_VALIDATED),
+        ];
+    }
+
+    /**
+     * get statusLabel.
+     *
+     * @return status
+     */
+    public function getStatusLabel($status = null)
+    {
+        if (null === $status) {
+            $status = $this->getStatus();
+        }
+
+        switch ($status) {
+            case self::STATUS_REGISTER:
+                $statusLabel = 'enregistré';
+                break;
+
+            case self::STATUS_VALIDATED:
+                $statusLabel = 'validé';
+                break;
+
+            case self::STATUS_KILLED:
+                $statusLabel = 'éliminé';
+                break;
+
+            default:
+                $statusLabel = '??';
+                break;
+        }
+
+        return $statusLabel;
     }
 }

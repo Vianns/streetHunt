@@ -8,3 +8,7 @@ services:
         class: UserBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
+    app.session_user.service:
+        class: AppBundle\Services\SessionUserService
+        arguments:
+            - "@doctrine.orm.entity_manager"

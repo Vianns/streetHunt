@@ -9,12 +9,24 @@
 
     <h2>Participants</h2>
 
+    <div class="text-left marged-bottom">
+        <a href="{{ url('admin_session_user_new', {'id' : session.id }) }}" class="btn btn-primary">
+            Ajouter un participant
+        </a>
+
+        <a href="{{ url('admin_session_generate', {'id' : session.id }) }}" class="btn btn-primary">
+            Générer la partie
+        </a>
+    </div>
+
 	<table class="dynatable table table-striped table-bordered table-hover" data-dynatable>
   		<thead>
     		<tr>
     			<th>ID</th>
     			<th>Username</th>
-    			<th>code</th>
+    			<th>Code</th>
+                <th>Cible</th>
+                <th>Killed by</th>
       			<th>Etat</th>
       			<th>Actions</th>
     		</tr>
@@ -24,11 +36,13 @@
   			{% for sessionUser in session.sessionUsers %}
 	  			<tr>
 	  				<td>{{ sessionUser.id }}</td>
-	  				<td>{{ sessionUser.user.username }}</td>
+	  				<td>{{ sessionUser.user }} <br> <i>{{ sessionUser.user.email }}</i></td>
 	  				<td>{{ sessionUser.code }}</td>
-	  				<td></td>
+	  				<td>{{ sessionUser.target }}</td>
+                    <td>{{ sessionUser.killedBy }}</td>
+                    <td>{{ sessionUser.statusLabel }}</td>
 	  				<td>
-	  					<a href="#" class="btn btn-xs btn-default">edit</a>
+	  					<a href="{{ url('admin_session_user_edit', {'id' : sessionUser.id }) }}" class="btn btn-xs btn-default">edit</a>
 	  					<a href="{{ url('admin_user_edit', {'id' : sessionUser.user.id }) }}" class="btn btn-xs btn-default">voir l'utilisateur</a>
 	  				</td>
 	  			</tr>

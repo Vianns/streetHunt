@@ -70,7 +70,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="sex", type="string", length=10)
+     * @ORM\Column(name="sex", type="string", length=10, nullable=true)
      */
     protected $sex;
 
@@ -110,7 +110,7 @@ class User extends BaseUser
     protected $userSessions;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string
      */
@@ -119,14 +119,14 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="first_name", type="string", length=255)
+     * @ORM\Column(name="first_name", type="string", length=255, nullable=true)
      */
     protected $firstName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="last_name", type="string", length=255)
+     * @ORM\Column(name="last_name", type="string", length=255, nullable=true)
      */
     protected $lastName;
 
@@ -384,7 +384,7 @@ class User extends BaseUser
      */
     public function getAddresses()
     {
-        return $this->address;
+        return $this->addresses;
     }
 
     /**
@@ -528,5 +528,25 @@ class User extends BaseUser
             self::ROLE_USER => 'user.role.label.user',
             self::ROLE_ADMIN => 'user.role.label.administrator',
         ];
+    }
+
+    /**
+     * get user cities.
+     *
+     * @return [type] [description]
+     */
+    public function getCities()
+    {
+        $userAddresses = [];
+        foreach ($this->getAddresses() as $address) {
+            $userAddresses[$address->getCity()] = $address->getCity();
+        }
+
+        return $userAddresses;
+    }
+
+    public function getLevel()
+    {
+        return 'level 1';
     }
 }

@@ -1,0 +1,18 @@
+<div class="box address-box">
+	<div class="address-box__head">
+		<h3>{{ address.name }}</h3>
+	</div>
+
+	<div class="address-box__content">
+		<p>{{ address.firstField }}</p>
+		{% if '' != address.secondField %}
+			<p>{{ address.secondField }}</p>
+		{% endif %}
+		<p>{{ address.postalCode }} - {{ address.city }}</p>
+	</div>
+
+	<div class="address-box__bottom text-right">
+		<a href="{{ url('admin_address_edit', { 'id' : address.id }) }}" class="btn btn-xs btn-default"><i class="fa fa-pencil"></i></a>
+		<a href="{{ url('admin_address_delete', { 'id' : address.id }) }}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
+	</div>
+</div>

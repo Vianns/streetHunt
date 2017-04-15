@@ -1,56 +1,33 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="modal fade" id="connectModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form action="{{ path("fos_user_security_check") }}" method="post">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h1>
-                        <div class="text-center">
-                            <img src="{{ asset('assets/f/img/logo-b.png') }}" alt="le jeu de vianney" title="le jeu de vianney" style="width: 200px;"><br />
-                            Connexion
-                        </div>
-                    </h1>
-                </div>
+{% extends 'front/layout_blank.html.twig' %}
 
-                <div class="modal-body">
-                    {% if csrf_token %}
-                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-                    {% endif %}
-
-                    <div class="row">
-                        <div class="col-xs-12 col-md-8 col-md-offset-2">
-                            <fieldset>
-                                <div class="form-group">
-                                    <label for="username">{{ 'security.login.username'|trans }}</label>
-                                    <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}" required="required" />
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="password">{{ 'security.login.password'|trans }}</label>
-                                    <input type="password" class="form-control" id="password" name="_password" required="required" />
-                                </div>
-
-                                <div class="checkbox">
-                                    <label for="remember_me">
-                                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                                        {{ 'security.login.remember_me'|trans }}
-                                    </label>
-                                </div>
-
-                                <button class="btn btn-primary btn-block btn-lg" type="submit" id="_submit" name="_submit">{{ 'security.login.submit'|trans }}</button>
-                            </fieldset>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <div class="text-center">
-                        Pas encore de compte ? <a href="{{ path("fos_user_registration_register") }}" class="link">S'inscrire</a>
-                    </div>
-                </div>
-            </form>
+{% block body %}
+    <div class="flex-wrapper flex-wrapper--center">
+        <div>
+            <img src="{{ asset('assets/f/img/logo-b.png') }}" alt="Street Hunt" title="Street Hunt" width="100%" class="logo-register">
         </div>
+
+
+        <form action="{{ path("fos_user_security_check") }}" method="post" class="login-form login-form--login">
+            <p class="title">Connexion</p>
+
+            {% if csrf_token %}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            {% endif %}
+
+            <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}" required="required" />
+            <i class="fa fa-user"></i>
+
+            <input type="password" class="form-control" id="password" name="_password" required="required" />
+            <i class="fa fa-key"></i>
+
+            <button>
+              <i class="spinner"></i>
+              <span class="state">{{ 'security.login.submit'|trans }}</span>
+            </button>
+
+            <a href="{{ path("fos_user_registration_register") }}">Pas encore de compte ?</a>
+        </form>
     </div>
-</div>
+{% endblock %}
