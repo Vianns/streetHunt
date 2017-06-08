@@ -4,13 +4,16 @@ namespace AppBundle\Form\Admin;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ArticleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title');
-        $builder->add('content');
+        $builder->add('content', TextareaType::class, [
+            'required' => false,
+        ]);
     }
 
     public function getBlockPrefix()

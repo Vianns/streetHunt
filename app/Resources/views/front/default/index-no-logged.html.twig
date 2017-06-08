@@ -2,8 +2,107 @@
 
 {% block body %}
     <div class="no-logged-home">
-        <div class="container-fluid ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="main-img-container">
+                    <div class="black-hover">
+                        <h1>
+                            <span>SteetWars</span> <span>Paris</span>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div class="container">
+            <div class="intro-no-logged">
+                <div class="text-center">
+                    <h2>
+                        {{ 'welcome' }}
+                    </h2>
+                </div>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+
+            <div class="home-img-list">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="text-center">
+                            <img src="https://fakeimg.pl/350/">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="text-center">
+                            <img src="https://fakeimg.pl/350/">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="text-center">
+                            <img src="https://fakeimg.pl/350/">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="explain-part">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-8">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="https://fakeimg.pl/350/">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="explain-part">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="https://fakeimg.pl/350/">
+                            </div>
+
+                            <div class="col-xs-12 col-sm-8">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="explain-part">
+                    <div class="text-center">
+                        <a href="{{ path('fos_user_security_login') }}" class="btn btn-default btn-lg">
+                            {{ 'login.btn'|trans }}
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

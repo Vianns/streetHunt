@@ -20,7 +20,7 @@
 
                         <div class="form-group">
                             {{ form_label(form.content) }}
-                            {{ form_widget(form.content, {'attr' : {'class' : 'form-control'}}) }}
+                            {{ form_widget(form.content, {'attr' : {'class' : 'form-control', 'data-tinymce' : 'data-tinymce', 'resuired' : 'false'}}) }}
 
                             <div class="error">
                                 {{ form_errors(form.content) }}
@@ -43,3 +43,7 @@
     </button>
 </div>
 {{ form_end(form) }}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/a/js/external/tinymce/tinymce.min.js') }}"></script>
+{% endblock %}

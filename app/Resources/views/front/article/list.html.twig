@@ -1,0 +1,17 @@
+{% for article in articles %}
+	<div class="box">
+	    <h2 class="box-title">
+	        {{ article.title }}
+	    </h2>
+
+	    <div class="box-content">
+	    	{% autoescape false %}
+	    		{{ article.content }}
+	    	{% endautoescape %}
+	    </div>
+
+	    <div class="box-bottom">
+	    	{{ article.createdAt|date('d/m/Y H:i:s') }}
+	    </div>
+	</div>
+{% endfor %}

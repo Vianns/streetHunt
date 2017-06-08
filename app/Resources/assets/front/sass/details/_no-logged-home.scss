@@ -1,0 +1,44 @@
+.no-logged-home {
+	.main-img-container {
+		background-size: cover;
+		background-position: center;
+		background-image: image-url('../img/paris-bw.jpg');
+		text-align: center;
+
+		.black-hover {
+			background: rgba(0,0,0,0.7);
+			line-height: 400px;
+			height: 400px;
+
+			h1 {
+				font-family: $ffamily;
+				display: inline-block;
+			}
+		}
+	}
+
+	.intro-no-logged {
+	    margin: 100px 0;
+    	text-align: center;
+	}
+
+	.home-img-list {
+		margin-bottom: 100px;
+	}
+
+	.explain-part {
+	    padding: 100px 0;
+    	background: #222;
+    	font-size: 1.5em;
+
+    	&:nth-child(even) {
+    		background: none;
+    		/*color: #000;*/
+    	}
+
+    	&:nth-child(3) {
+    		background: #111;
+    		/*color: #000;*/
+    	}
+	}
+}

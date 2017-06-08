@@ -49,7 +49,7 @@ class ArticleController extends Controller
     /**
      * @Route("/edit/{id}", name="admin_article_edit")
      */
-    public function editAction(User $article, Request $request)
+    public function editAction(Article $article, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 

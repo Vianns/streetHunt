@@ -19,13 +19,12 @@
             {% for article in articles %}
                 <tr>
                     <td>{{ article.id }}</td>
-                    <td>{{ article.title}}</td>
-                    <td>{{ article.createdAt}}</td>
+                    <td>{{ article.title }}</td>
+                    <td>{{ article.createdAt|date('d/m/Y H:i:s') }}</td>
                     <td><a href="{{ url('admin_article_edit', {'id' : article.id }) }}" class="btn btn-xs btn-default">edit</a></td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
     </div>
-
 {% endblock %}
