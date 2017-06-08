@@ -1,0 +1,68 @@
+{% extends 'front/layout.html.twig' %}
+
+{% block leftside %}
+    <div class="col-xs-12 col-sm-6 col-md-3">
+        {{ render(controller('AppBundle:Front/User:miniprofil')) }}
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="box">
+            <h2 class="box-title">
+                {{session.name}}
+            </h2>
+
+            <div class="box-content">
+                <a href="{{ url('session_show', {'id' : session.id}) }}" class="img-with-title">
+                    <img src="{{ vich_uploader_asset(session, 'pictureFile') }}" alt="" width="100%"/>
+                </a>
+
+                <ul class="current-session-info">
+                    <li>
+                        <div class="title">
+                            {{ 'participants'|trans }}
+                        </div>
+
+                        <span class="number">
+                            {{ session.sessionUsers|length }}
+                        </span>
+                    </li>
+
+                    <li>
+                        <div class="title">
+                            {{ 'éliminés'|trans }}
+                        </div>
+
+                        <span class="number">
+                            {{ session.sessionUsersKilled|length }}
+                        </span>
+                    </li>
+
+                    <li>
+                        <div class="title">
+                            {{ 'espions'|trans }}
+                        </div>
+
+                        <span class="number">
+                            {{ session.sessionUsersActive|length }}
+                        </span>
+                    </li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+
+        {% if false == userSession %}
+            <div class="text-center">
+                <a href="#" class="btn btn-primary btn-lg">
+                    {{ "s'inscrire"|trans }}
+                </a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block rightside %}
+
+{% endblock %}

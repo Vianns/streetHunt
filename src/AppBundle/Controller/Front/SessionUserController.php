@@ -12,7 +12,7 @@ class SessionUserController extends BaseController
     /**
      * @Route("/mini-target", name="mini_target")
      */
-    public function minitargetAction(Request $request)
+    public function miniTargetAction(Request $request)
     {
         $session = $this->getDoctrine()->getRepository('AppBundle:Session')->findByUser($this->getUser());
         $myUserSession = $this->getDoctrine()->getRepository('AppBundle:SessionUser')->findBySessionAndUser($session->getId(), $this->getUser()->getId());
@@ -29,7 +29,7 @@ class SessionUserController extends BaseController
     /**
      * @Route("/kill-target", name="kill_target")
      */
-    public function killtargetAction(Request $request)
+    public function killTargetAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -49,7 +49,7 @@ class SessionUserController extends BaseController
     /**
      * @Route("/mini-card", name="mini_card")
      */
-    public function minicardAction(Request $request)
+    public function miniCardAction(Request $request)
     {
         $session = $this->getDoctrine()->getRepository('AppBundle:Session')->findByUser($this->getUser());
         $myUserSession = $this->getDoctrine()->getRepository('AppBundle:SessionUser')->findBySessionAndUser($session->getId(), $this->getUser()->getId());

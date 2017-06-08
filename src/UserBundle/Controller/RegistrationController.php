@@ -9,6 +9,7 @@ use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
+use ReCaptcha\ReCaptcha;
 
 class RegistrationController extends BaseController
 {
@@ -38,22 +39,27 @@ class RegistrationController extends BaseController
 
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
-                $event = new FormEvent($form, $request);
-                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
+                $recaptcha = new ReCaptcha($this->getParameter('google_recap_secret_key'));
+                $resp = $recaptcha->verify($request->request->get('g-recaptcha-response'), $request->getClientIp());
 
-                $userManager->updateUser($user);
+                if ($resp->isSuccess()) {
+                    $event = new FormEvent($form, $request);
+                    $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
-                if (null === $response = $event->getResponse()) {
-                    $url = $this->getParameter('fos_user.registration.confirmation.enabled')
-                        ? $this->generateUrl('fos_user_registration_confirmed')
-                        : $this->generateUrl('fos_user_profile_show');
+                    $userManager->updateUser($user);
 
-                    $response = new RedirectResponse($url);
+                    if (null === $response = $event->getResponse()) {
+                        $url = $this->getParameter('fos_user.registration.confirmation.enabled')
+                            ? $this->generateUrl('fos_user_registration_confirmed')
+                            : $this->generateUrl('fos_user_profile_show');
+
+                        $response = new RedirectResponse($url);
+                    }
+
+                    $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+
+                    return $response;
                 }
-
-                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
-
-                return $response;
             }
 
             $event = new FormEvent($form, $request);
@@ -66,6 +72,7 @@ class RegistrationController extends BaseController
 
         return $this->render('front/register/register.html.twig', [
             'form' => $form->createView(),
+            'captchaKey' => $this->getParameter('google_recap_site_key'),
         ]);
     }
 

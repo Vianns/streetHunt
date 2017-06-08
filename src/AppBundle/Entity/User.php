@@ -210,7 +210,7 @@ class User extends BaseUser
      */
     public function getAvatarName()
     {
-        return null == $this->avatarName ? 'default.png' : $this->avatarName;
+        return null == $this->avatarName ? 'default.jpg' : $this->avatarName;
     }
 
     /**
@@ -254,7 +254,7 @@ class User extends BaseUser
      */
     public function getPictureName()
     {
-        return null == $this->pictureName ? 'default.png' : $this->pictureName;
+        return null == $this->pictureName ? 'default.jpg' : $this->pictureName;
     }
 
     /**

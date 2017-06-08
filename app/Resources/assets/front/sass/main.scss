@@ -27,7 +27,7 @@ $radius: 2px;
 }
 
 body {
-    background: url('../../f/img/bg-1.png') 35% fixed;
+    background: url('../../f/img/bg-1.jpg') 35% fixed;
     height: 100vh;
     background-size: cover;
     color: #fff;
@@ -296,5 +296,20 @@ input.form-control.black {
     }
 }
 
-@import 'login';
+.navbar-brand {
+    float: none;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    padding: 0 !important;
+    width: 140px;
+    margin-left: -70px !important;
 
+    img {
+        height: auto;
+        width: 100%;
+    }
+}
+
+@import 'login';
+@import 'footer';

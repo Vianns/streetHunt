@@ -1,0 +1,31 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>Liste des articles</h1>
+
+    <div class="marged-top">
+        <a href="{{ url('admin_article_new') }}" class="btn btn-primary btn-xs">nouvel article</a>
+
+        <table class="dynatable table table-striped table-bordered table-hover" data-dynatable>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titre</th>
+                <th>Date de création</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for article in articles %}
+                <tr>
+                    <td>{{ article.id }}</td>
+                    <td>{{ article.title}}</td>
+                    <td>{{ article.createdAt}}</td>
+                    <td><a href="{{ url('admin_article_edit', {'id' : article.id }) }}" class="btn btn-xs btn-default">edit</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

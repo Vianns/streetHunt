@@ -1,28 +1,20 @@
 {% extends 'front/layout.html.twig' %}
 
+{% block leftside %}
+    <div class="col-xs-12 col-sm-6 col-md-3">
+        {{ render(controller('AppBundle:Front/SessionUser:minicard')) }}
+        {{ render(controller('AppBundle:Front/User:miniprofil')) }}
+    </div>
+{% endblock %}
+
 {% block body %}
+    <div class="col-xs-12 col-sm-6 col-md-6">
+        {{ render(controller('AppBundle:Front/Session:details')) }}
+    </div>
+{% endblock %}
 
-	<section id="session" class="page-container">
-		<div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>{{ session.name }}</h2>
-                    <hr class="star-light">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12 col-md-8">
-                    <img class="img-thumbnail shadowed"  style="transform: rotate( {{ random(['-2', '-1', '1', '2']) }}deg )" src="{{ vich_uploader_asset(session, 'pictureFile') }}" width="100%">
-                </div>
-
-                {% if userSession is not empty %}
-                    <div class="col-xs-12 col-md-4">
-                        {% include 'front/user/card.html.twig' with { sessionUser : userSession} %}
-                    </div>
-                {% endif %}
-            </div>
-        </div>
-	</section>
+{% block rightside %}
 
 {% endblock %}
+
+

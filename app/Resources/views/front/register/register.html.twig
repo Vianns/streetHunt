@@ -1,20 +1,11 @@
+{% import "Macros/form_elements.html.twig" as formElements %}
+
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% extends 'front/layout_blank.html.twig' %}
+{% extends 'front/layout.html.twig' %}
 
 {% block body %}
-    <div class="flex-wrapper">
-		<div class="flex-box flex-box--inverse">
-			<img src="{{ asset('assets/f/img/logo-b.png') }}" alt="Street Hunt" title="Street Hunt" width="100%" class="logo-register">
-
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		</div>
-
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
 		{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register login-form'}}) }}
 			<p class="title">Inscription</p>
 
@@ -42,10 +33,16 @@
             {{ form_widget(form.plainPassword.second, {'attr' : {'class' : 'form-control', 'placeholder' : 'form.plainPassword.second' }}) }}
 			<i class="fa fa-lock"></i>
 
+			{{formElements.recaptcha(captchaKey)}}
+
 			<button>
               <i class="spinner"></i>
               <span class="state">{{ 'security.register.submit'|trans }}</span>
             </button>
 		{{ form_end(form) }}
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 {% endblock %}

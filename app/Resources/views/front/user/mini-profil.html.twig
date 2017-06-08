@@ -12,6 +12,10 @@
 			<div class="mini-profil__level">
 				{{ app.user.level }}
 			</div>
+
+			<a href="{{ path('fos_user_profile_edit') }}" class="btn btn-xs btn-primary">
+				{{ 'edit.profil.btn'|trans }}
+			</a>
 		</div>
     </div>
 </div>

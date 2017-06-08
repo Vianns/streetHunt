@@ -2,21 +2,18 @@
 
 {% block leftside %}
     <div class="col-xs-12 col-sm-6 col-md-3">
-        {{ render(controller('AppBundle:Front/SessionUser:minicard')) }}
         {{ render(controller('AppBundle:Front/User:miniprofil')) }}
     </div>
 {% endblock %}
 
 {% block body %}
     <div class="col-xs-12 col-sm-6 col-md-6">
-        {{ render(controller('AppBundle:Front/Session:current')) }}
         {{ render(controller('AppBundle:Front/Notification:actuality')) }}
     </div>
 {% endblock %}
 
 {% block rightside %}
     <div class="col-xs-12 col-sm-6 col-md-3">
-        {{ render(controller('AppBundle:Front/SessionUser:minitarget')) }}
         {{ render(controller('AppBundle:Front/Session:currents')) }}
     </div>
 {% endblock %}

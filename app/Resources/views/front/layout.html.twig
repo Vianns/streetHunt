@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="{{ asset('assets/f/css/main.css') }}">
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v=1" />
     </head>
+
     <body id="page-top" class="index" cz-shortcut-listen="true">
         <div id="main">
             {% include 'front/default/_menu.html.twig' %}
@@ -19,6 +20,8 @@
                     {% block rightside %}{% endblock %}
                 </div>
             </div>
+
+            {% include 'front/default/_footer.html.twig' %}
         </div>
 
         {% block javascripts %}{% endblock %}

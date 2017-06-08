@@ -47,4 +47,20 @@ class SessionController extends BaseController
             'userSession' => $userSession,
         ]);
     }
+
+    /**
+     * Show.
+     *
+     * @Route("/session/detail/{id}", name="session_show")
+     * @Method({"GET"})
+     */
+    public function detailsAction(Session $session, Request $request)
+    {
+        $userSession = $this->getDoctrine()->getRepository('AppBundle:SessionUser')->findBySessionAndUser($session, $this->getUser());
+
+        return $this->render('front/session/details.html.twig', [
+            'session' => $session,
+            'userSession' => $userSession,
+        ]);
+    }
 }

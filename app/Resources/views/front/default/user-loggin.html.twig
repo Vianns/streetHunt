@@ -1,14 +1,9 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% extends 'front/layout_blank.html.twig' %}
+{% extends 'front/layout.html.twig' %}
 
 {% block body %}
-    <div class="flex-wrapper flex-wrapper--center">
-        <div>
-            <img src="{{ asset('assets/f/img/logo-b.png') }}" alt="Street Hunt" title="Street Hunt" width="100%" class="logo-register">
-        </div>
-
-
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
         <form action="{{ path("fos_user_security_check") }}" method="post" class="login-form login-form--login">
             <p class="title">Connexion</p>
 
@@ -23,8 +18,8 @@
             <i class="fa fa-key"></i>
 
             <button>
-              <i class="spinner"></i>
-              <span class="state">{{ 'security.login.submit'|trans }}</span>
+                <i class="spinner"></i>
+                <span class="state">{{ 'security.login.submit'|trans }}</span>
             </button>
 
             <a href="{{ path("fos_user_registration_register") }}">Pas encore de compte ?</a>
