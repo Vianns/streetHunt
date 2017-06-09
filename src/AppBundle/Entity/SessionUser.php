@@ -59,6 +59,13 @@ class SessionUser
     private $killedBy;
 
     /**
+     * @ORM\Column(type="integer", name="nb_kill", nullable=true)
+     *
+     * @var string
+     */
+    private $nbKill;
+
+    /**
      * @ORM\Column(type="integer", name="status", length=1, nullable=true)
      *
      * @var int
@@ -74,7 +81,7 @@ class SessionUser
      *
      * @param int $id
      *
-     * @return \AppBundle\Entity\Project
+     * @return \AppBundle\Entity\SessionUser
      */
     public function setId($id)
     {
@@ -141,6 +148,8 @@ class SessionUser
     public function setCode($code)
     {
         $this->code = $code;
+
+        return $this;
     }
 
     /**
@@ -161,6 +170,8 @@ class SessionUser
     public function setTarget($target)
     {
         $this->target = $target;
+
+        return $this;
     }
 
     /**
@@ -181,6 +192,8 @@ class SessionUser
     public function setKilledBy($killedBy)
     {
         $this->killedBy = $killedBy;
+
+        return $this;
     }
 
     /**
@@ -191,6 +204,30 @@ class SessionUser
     public function getKilledBy()
     {
         return $this->killedBy;
+    }
+
+    /**
+     * Set the value of nb kill.
+     *
+     * @param int $nbKill
+     *
+     * @return \AppBundle\Entity\SessionUser
+     */
+    public function setNbKill($nbKill)
+    {
+        $this->nbKill = $nbKill;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of nbKill.
+     *
+     * @return int
+     */
+    public function getNbKill()
+    {
+        return $this->nbKill;
     }
 
     /**

@@ -14,7 +14,9 @@ class SessionType extends AbstractType
         $builder->add('city');
         $builder->add('openAt');
         $builder->add('startAt');
-        $builder->add('pictureFile', VichImageType::class, ['required' => false]);
+        $builder->add('pictureFile', VichImageType::class, [
+            'required' => false,
+        ]);
         $builder->add('isOver');
         $builder->add('type');
     }

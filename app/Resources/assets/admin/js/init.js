@@ -60,24 +60,26 @@ $(document).ready(function(){
 
     $('[data-dynatable]').dynatable();
 
-    tinymce.init({
-        selector: '[data-tinymce]',
-        language: 'fr_FR',
-        plugins: [
-            "code",
-            "advlist autolink link image lists charmap print preview hr anchor pagebreak fullscreen",
-            "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
-            "table contextmenu directionality emoticons paste textcolor responsivefilemanager autoresize"
-        ],
-        relative_urls : false,
-        remove_script_host : false,
-        convert_urls : true,
-        toolbar1: "bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | preview code | fullscreen",
-        image_advtab: true ,
-        external_filemanager_path: "/filemanager/",
-        filemanager_title: "File manager",
-        filemanager_access_key: '01ec155031e70e869eeef6995b6a846db6b583a8',
-        filemanager_language: 'en_EN',
-        external_plugins: { "filemanager" : "/filemanager/plugin.min.js"}
-    });
+    if ('undefined' !== typeof tinymce) {
+        tinymce.init({
+            selector: '[data-tinymce]',
+            language: 'fr_FR',
+            plugins: [
+                "code",
+                "advlist autolink link image lists charmap print preview hr anchor pagebreak fullscreen",
+                "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
+                "table contextmenu directionality emoticons paste textcolor responsivefilemanager autoresize"
+            ],
+            relative_urls : false,
+            remove_script_host : false,
+            convert_urls : true,
+            toolbar1: "bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | preview code | fullscreen",
+            image_advtab: true ,
+            external_filemanager_path: "/filemanager/",
+            filemanager_title: "File manager",
+            filemanager_access_key: '01ec155031e70e869eeef6995b6a846db6b583a8',
+            filemanager_language: 'en_EN',
+            external_plugins: { "filemanager" : "/filemanager/plugin.min.js"}
+        });
+    }
 });

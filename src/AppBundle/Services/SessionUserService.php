@@ -25,6 +25,23 @@ class SessionUserService extends BaseService
     }
 
     /**
+     * new user.
+     *
+     * @param User    $user
+     * @param Session $session
+     */
+    public function newUser($user, $session)
+    {
+        $sessionUser = new SessionUser();
+        $sessionUser->setUser($user);
+        $sessionUser->setSession($session);
+        $sessionUser->setStatus(SessionUser::STATUS_REGISTER);
+
+        $this->persistAndFlush($user);
+        $this->persistAndFlush($sessionUser);
+    }
+
+    /**
      * Retrieve rank label of given user.
      *
      * @param string $targetCode
@@ -34,9 +51,12 @@ class SessionUserService extends BaseService
         $targetSessionUser = $this->repoSessionUser->findBySessionAndCode($userSession->getSession()->getId(), $targetCode);
 
         $userSession->setTarget($targetSessionUser->getTarget());
+        $userSession->setNbKill($userSession->getNbKill() + 1);
+
         $targetSessionUser->setKilledBy($userSession->getCode());
         $targetSessionUser->setTarget(null);
         $targetSessionUser->setStatus(SessionUser::STATUS_KILLED);
+
         $this->persistAndFlush($userSession);
         $this->persistAndFlush($targetSessionUser);
     }

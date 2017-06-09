@@ -8,10 +8,13 @@ use FOS\UserBundle\Controller\SecurityController as BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use AppBundle\Entity\Session;
 
+/**
+ * @Route("/session")
+ */
 class SessionController extends BaseController
 {
     /**
-     * @Route("/session-current", name="session_currents")
+     * @Route("/current", name="session_currents")
      */
     public function currentAction(Request $request)
     {
@@ -23,7 +26,7 @@ class SessionController extends BaseController
     }
 
     /**
-     * @Route("/sessions-currents", name="session_currents")
+     * @Route("/currents", name="session_currents")
      */
     public function currentsAction(Request $request)
     {
@@ -35,7 +38,7 @@ class SessionController extends BaseController
     /**
      * Show.
      *
-     * @Route("/session/{id}", name="session_show")
+     * @Route("/{id}", name="session_show")
      * @Method({"GET"})
      */
     public function showAction(Session $session, Request $request)
@@ -51,7 +54,7 @@ class SessionController extends BaseController
     /**
      * Show.
      *
-     * @Route("/session/detail/{id}", name="session_show")
+     * @Route("/detail/{id}", name="session_show")
      * @Method({"GET"})
      */
     public function detailsAction(Session $session, Request $request)

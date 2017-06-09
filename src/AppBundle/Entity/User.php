@@ -15,6 +15,10 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class User extends BaseUser
 {
+    const SEX_MALE = 1;
+    const SEX_FEMALE = 2;
+    const SEX_NONE = 0;
+
     /**
      * Administrator role.
      */
@@ -548,5 +552,19 @@ class User extends BaseUser
     public function getLevel()
     {
         return 'level 1';
+    }
+
+    /**
+     * Get types list.
+     *
+     * @return array
+     */
+    public static function getSexs()
+    {
+        return [
+            self::SEX_MALE => 'sex.male',
+            self::SEX_FEMALE => 'sex.female',
+            self::SEX_NONE => 'sex.none',
+        ];
     }
 }

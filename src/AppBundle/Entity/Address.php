@@ -116,6 +116,8 @@ class Address
     public function setCity($city)
     {
         $this->city = $city;
+
+        return $this;
     }
 
     /**
@@ -134,6 +136,8 @@ class Address
     public function setPostalCode($postalCode)
     {
         $this->postalCode = $postalCode;
+
+        return $this;
     }
 
     /**
@@ -152,6 +156,8 @@ class Address
     public function setFirstField($firstField)
     {
         $this->firstField = $firstField;
+
+        return $this;
     }
 
     /**
@@ -170,6 +176,8 @@ class Address
     public function setSecondField($secondField)
     {
         $this->secondField = $secondField;
+
+        return $this;
     }
 
     /**
@@ -190,6 +198,8 @@ class Address
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**

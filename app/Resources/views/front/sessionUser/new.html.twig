@@ -1,0 +1,84 @@
+{% form_theme form 'front/_layout/form.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% extends 'front/layout.html.twig' %}
+
+{% block body %}
+	<div class="container container-main">
+		<div class="col-xs-12 col-md-6 col-md-offset-3">
+			{{ form_start(form, {'attr': {'class': 'login-form session-signup-form'}}) }}
+				<p class="title">
+					{{ 'session.signup'|trans }}
+				</p>
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-7">
+						<fieldset class="marged-bottom">
+							{{ form_widget(form.sex, {'attr' : {'class' : 'form-control'}}) }}
+			            </fieldset>
+
+			            <fieldset class="marged-bottom">
+			            	{{ form_label(form.birthday) }}
+							{{ form_widget(form.birthday) }}
+			            </fieldset>
+					</div>
+
+					<div class="col-xs-12 col-sm-5">
+						<fieldset>
+							<label class="input-group-btn">
+								<div class="session-signup-form__picture" data-img-file style="background-image:url('{{ vich_uploader_asset(app.user, 'pictureFile') }}')"></div>
+
+			                    <span class="btn btn-default btn-xs btn-block">
+			                        Parcourir ...{{ form_widget(form.pictureFile, {'attr' : {'class' : 'hidden'}}) }}
+			                    </span>
+			                </label>
+
+			                <div class="error">
+		                		{{ form_errors(form.pictureFile) }}
+		                	</div>
+			            </fieldset>
+					</div>
+				</div>
+
+				<fieldset>
+	            	{{ form_label(form.firstName) }}
+					{{ form_widget(form.firstName, {'attr' : {'class' : 'form-control', 'placeholder' : 'firstname.placeholder' }}) }}
+					<i class="fa fa-user" aria-hidden="true"></i>
+	            </fieldset>
+
+	            <fieldset>
+	            	{{ form_label(form.lastName) }}
+					{{ form_widget(form.lastName, {'attr' : {'class' : 'form-control', 'placeholder' : 'lastname.placeholder' }}) }}
+					<i class="fa fa-user" aria-hidden="true"></i>
+	            </fieldset>
+
+	            <fieldset>
+	            	{{ form_label(form.phoneNumber) }}
+					{{ form_widget(form.phoneNumber, {'attr' : {'class' : 'form-control', 'placeholder' : 'phone.placeholder' }}) }}
+					<i class="fa fa-phone" aria-hidden="true"></i>
+	            </fieldset>
+
+	            <fieldset class="marged-bottom">
+	            	{{ form_label(form.transports) }}
+					{{ form_widget(form.transports, {'attr' : {'class' : 'form-control' }}) }}
+	            </fieldset>
+
+				<div class="marged-top">
+		            <div class="row">
+						<div class="col-xs-12 col-md-6">
+							<a href="{{ path('homepage') }}" class="btn btn-default btn-block btn-lg">
+			                	{{ 'retour'|trans }}
+			                </a>
+						</div>
+
+						<div class="col-xs-12 col-md-6">
+							<button class="btn btn-default btn-block btn-lg" type="submit" id="_submit" name="_submit">
+			                	{{ 'ok'|trans }}
+			                </button>
+						</div>
+					</div>
+				</div>
+			</div>
+		{{ form_end(form) }}
+	</div>
+{% endblock %}

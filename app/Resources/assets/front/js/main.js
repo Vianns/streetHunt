@@ -25,10 +25,13 @@ $(document).ready( function() {
         var input = $(this).parents('.input-group').find(':text'),
             log = numFiles > 1 ? numFiles + ' files selected' : label;
 
-        if( input.length ) {
-            input.val(log);
-        } else {
-            if( log ) alert(log);
-        }
+        $('[data-img-file]').attr('style', 'background-image: url(' + URL.createObjectURL(event.target.files[0]) + ')');
+
     });
+
+    if ('undefined' !== typeof datepicker) {
+        $('.js-datepicker').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+    }
 });

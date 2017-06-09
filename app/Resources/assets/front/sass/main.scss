@@ -336,6 +336,27 @@ input.form-control.black {
         width: 100%;
     }
 }
+
+@media (min-width: 768px) {
+    .navbar-right {
+        margin-right: 0 !important;
+
+        li {
+            float: left;
+            width: 50px;
+            text-align: center;
+            border-right: 1px solid #111;
+            border-left: 1px solid #353535;
+        }
+    }
+}
+
+.help-text {
+    background: rgba(45, 45, 45, 0.35);
+    padding: 15px;
+    font-style: italic;
+}
+
 @import 'details/no-logged-home';
 @import 'details/login';
 @import 'details/footer';

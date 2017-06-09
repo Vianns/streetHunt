@@ -35,7 +35,7 @@
                         </div>
 
                         <span class="number">
-                            {{ session.sessionUsersKilled|length }}
+                            {{ session.sessionUsersKilled }}
                         </span>
                     </li>
 
@@ -45,24 +45,64 @@
                         </div>
 
                         <span class="number">
-                            {{ session.sessionUsersActive|length }}
+                            {{ session.sessionUsersActive }}
                         </span>
                     </li>
                     <li></li>
                 </ul>
             </div>
         </div>
-
-        {% if false == userSession %}
-            <div class="text-center">
-                <a href="#" class="btn btn-primary btn-lg">
-                    {{ "s'inscrire"|trans }}
-                </a>
-            </div>
-        {% endif %}
     </div>
 {% endblock %}
 
 {% block rightside %}
+    <div class="col-xs-12 col-sm-6 col-md-3">
+        {% if false == userSession %}
+            <div class="marged-top">
+                <a href="{{ path('new_user_session', {'id' : session.id }) }}" class="btn btn-default btn-lg btn-block">
+                    {{ "s'inscrire"|trans }}
+                </a>
+            </div>
+        {% endif %}
 
+        <div class="box">
+            <h2 class="box-title">
+                {{ 'session.notifications'|trans }}
+            </h2>
+
+            <div class="box-content">
+
+            </div>
+        </div>
+
+        <div class="box">
+            <h2 class="box-title">
+                {{ 'session.ranking'|trans }}
+            </h2>
+
+            <div class="box-content">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                #
+                            </th>
+
+                            <th>
+                                {{ 'user.pseudo'|trans }}
+                            </th>
+
+                            <th>
+                                {{ 'user.nbkill'|trans }}
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock %}
