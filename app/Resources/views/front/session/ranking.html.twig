@@ -1,0 +1,35 @@
+<div class="box">
+    <h2 class="box-title">
+        {{ 'session.ranking'|trans }}
+    </h2>
+
+    <div class="box-content">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+
+                    <th>
+                        {{ 'user.pseudo'|trans }}
+                    </th>
+
+                    <th>
+                        {{ 'user.nbkill'|trans }}
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for rank, sessionUser in sessionUsers %}
+                <tr>
+                    <td> {{ rank + 1 }}</td>
+                    <td> <span class="pin-rank-status status-{{ sessionUser.status }}"></span> {{ sessionUser.user.username }} </td>
+                    <td> {{ null == sessionUser.nbKill ? 0 : sessionUser.nbKill }} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

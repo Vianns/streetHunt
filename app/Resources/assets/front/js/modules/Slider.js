@@ -5,8 +5,10 @@ require('slider-pro');
 
 class Slider
 {
-    constructor(autobind)
+    constructor(autobind, container)
     {
+        this.container = undefined === container ? $('body') : container;
+
         if (undefined === autobind) {
             autobind = true;
         }
@@ -18,7 +20,7 @@ class Slider
 
     bind()
     {
-        $( '.slider-pro' ).sliderPro({
+        this.container.find('.slider-pro' ).sliderPro({
             width: 940,
             height: 340,
             arrows: true,

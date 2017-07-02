@@ -52,6 +52,8 @@ class SessionUserController extends BaseController
                 'target' => $target->getUser(),
                 'form' => $form->createView(),
             ]);
+        } elseif (SessionUser::STATUS_KILLED === $myUserSession->getStatus()) {
+            return $this->render('front/sessionUser/killed.html.twig');
         } else {
             return $this->render('front/sessionUser/not-validated.html.twig');
         }

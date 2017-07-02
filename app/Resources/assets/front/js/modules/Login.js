@@ -3,8 +3,10 @@ window.$ = require('jquery');
 
 class Login
 {
-    constructor(autobind)
+    constructor(autobind, container)
     {
+        this.container = undefined === container ? $('body') : container;
+
         if (undefined === autobind) {
             autobind = true;
         }
@@ -18,7 +20,7 @@ class Login
     {
         var working = false;
 
-        $('.login-form').on('submit', function(e) {
+        this.container.find('.login-form').on('submit', function(e) {
             // e.preventDefault();
 
             if (working) return;

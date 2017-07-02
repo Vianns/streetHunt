@@ -17,6 +17,9 @@ class ArticleController extends Controller
      */
     public function listAction(Request $request)
     {
+
+        //paginatoin 5
+
         return $this->render('front/article/list.html.twig', [
             'articles' => $this->getDoctrine()->getRepository('AppBundle:Article')->findAll(),
         ]);

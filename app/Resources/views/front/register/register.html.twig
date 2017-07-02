@@ -35,10 +35,12 @@
 
 			{{formElements.recaptcha(captchaKey)}}
 
-			<button>
-              <i class="spinner"></i>
-              <span class="state">{{ 'security.register.submit'|trans }}</span>
-            </button>
+            <div class="text-center">
+                <button class="btn btn-primary marged-top">
+                  <i class="spinner"></i>
+                  <span class="state">{{ 'security.register.submit'|trans }}</span>
+                </button>
+            </div>
 		{{ form_end(form) }}
     </div>
 {% endblock %}

@@ -38,6 +38,21 @@ class SessionController extends BaseController
     /**
      * Show.
      *
+     * @Route("/ranking/{id}", name="session_ranking")
+     * @Method({"GET"})
+     */
+    public function rankingAction(Session $session, Request $request)
+    {
+        $sessionUsers = $this->getDoctrine()->getRepository('AppBundle:SessionUser')->findRankedBySession($session);
+
+        return $this->render('front/session/ranking.html.twig', [
+            'sessionUsers' => $sessionUsers,
+        ]);
+    }
+
+    /**
+     * Show.
+     *
      * @Route("/{id}", name="session_show")
      * @Method({"GET"})
      */
@@ -46,22 +61,6 @@ class SessionController extends BaseController
         $userSession = $this->getDoctrine()->getRepository('AppBundle:SessionUser')->findBySessionAndUser($session, $this->getUser());
 
         return $this->render('front/session/show.html.twig', [
-            'session' => $session,
-            'userSession' => $userSession,
-        ]);
-    }
-
-    /**
-     * Show.
-     *
-     * @Route("/detail/{id}", name="session_show")
-     * @Method({"GET"})
-     */
-    public function detailsAction(Session $session, Request $request)
-    {
-        $userSession = $this->getDoctrine()->getRepository('AppBundle:SessionUser')->findBySessionAndUser($session, $this->getUser());
-
-        return $this->render('front/session/details.html.twig', [
             'session' => $session,
             'userSession' => $userSession,
         ]);

@@ -2,19 +2,79 @@
 
 {% block leftside %}
     <div class="col-xs-12 col-sm-6 col-md-3">
-        {{ render(controller('AppBundle:Front/SessionUser:minicard')) }}
         {{ render(controller('AppBundle:Front/User:miniprofil')) }}
     </div>
 {% endblock %}
 
 {% block body %}
     <div class="col-xs-12 col-sm-6 col-md-6">
-        {{ render(controller('AppBundle:Front/Session:details')) }}
+        <div class="box">
+            <h2 class="box-title">
+                {{session.name}}
+            </h2>
+
+            <div class="box-content">
+                <a href="{{ url('session_show', {'id' : session.id}) }}" class="img-with-title">
+                    <img src="{{ vich_uploader_asset(session, 'pictureFile') }}" alt="" width="100%"/>
+                </a>
+
+                <ul class="current-session-info">
+                    <li>
+                        <div class="title">
+                            {{ 'participants'|trans }}
+                        </div>
+
+                        <span class="number">
+                            {{ session.sessionUsers|length }}
+                        </span>
+                    </li>
+
+                    <li>
+                        <div class="title">
+                            {{ 'éliminés'|trans }}
+                        </div>
+
+                        <span class="number">
+                            {{ session.sessionUsersKilled }}
+                        </span>
+                    </li>
+
+                    <li>
+                        <div class="title">
+                            {{ 'espions'|trans }}
+                        </div>
+
+                        <span class="number">
+                            {{ session.sessionUsersActive }}
+                        </span>
+                    </li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
     </div>
 {% endblock %}
 
 {% block rightside %}
+    <div class="col-xs-12 col-sm-6 col-md-3">
+        {% if false == userSession %}
+            <div class="marged-top">
+                <a href="{{ path('new_user_session', {'id' : session.id }) }}" class="btn btn-default btn-lg btn-block">
+                    {{ "s'inscrire"|trans }}
+                </a>
+            </div>
+        {% endif %}
 
+        <div class="box">
+            <h2 class="box-title">
+                {{ 'session.notifications'|trans }}
+            </h2>
+
+            <div class="box-content">
+
+            </div>
+        </div>
+
+		<div data-autoload-src="{{ path('session_ranking', { 'id' : session.id }) }}"></div>
+    </div>
 {% endblock %}
-
-

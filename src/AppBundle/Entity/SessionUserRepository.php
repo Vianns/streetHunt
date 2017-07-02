@@ -97,4 +97,17 @@ class SessionUserRepository extends \Doctrine\ORM\EntityRepository
 
         return 0 === count($result) ? null : $result[0];
     }
+
+    public function findRankedBySession($session)
+    {
+        return $this
+            ->createQueryBuilder('su')
+            ->andWhere('su.session = :session')
+            ->andWhere('su.status != 0')
+            ->addOrderBy('su.status', 'ASC')
+            ->addOrderBy('su.nbKill', 'DESC')
+            ->setParameter('session', $session)
+            ->setMaxResults(20)
+            ->getQuery()->getResult();
+    }
 }
