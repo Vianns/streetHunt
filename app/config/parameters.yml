@@ -1,0 +1,14 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: Vian
+    database_user: root
+    database_password: root
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: datcharrye@gmail.com
+    mailer_password: null
+    secret: db8c9918c1813b3553754e0b3839ee8cd499799e
+    google_recap_site_key: 6LdieyEUAAAAANLWCxrZam99CSjzGhlhOA3-IEFR
+    google_recap_secret_key: 6LdieyEUAAAAAKGuGZhsekfE9bi_Gdy3jx9jpQ1v
