@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="eab2445b91e08139c983aed41704f73b" resname="security.login.submit">
+        <source>security.login.submit</source>
+        <target>__security.login.submit</target>
+      </trans-unit>
+      <trans-unit id="05163f17424611bf80635bd0ab2e3b4c" resname="security.register.submit">
+        <source>security.register.submit</source>
+        <target>__security.register.submit</target>
+      </trans-unit>
+      <trans-unit id="7800bcb3062835170a26da03b97b582a" resname="session.signup">
+        <source>session.signup</source>
+        <target>__session.signup</target>
+      </trans-unit>
+      <trans-unit id="1a286fc88ca31f7f15b42a182a44b44f" resname="retour">
+        <source>retour</source>
+        <target>__retour</target>
+      </trans-unit>
+      <trans-unit id="444bcb3a3fcf8389296c49467f27e1d6" resname="ok">
+        <source>ok</source>
+        <target>__ok</target>
+      </trans-unit>
+      <trans-unit id="451e294d97eea021c59c88d95cebd878" resname="editer">
+        <source>editer</source>
+        <target>__editer</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

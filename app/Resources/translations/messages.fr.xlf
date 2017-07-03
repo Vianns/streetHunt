@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="1a286fc88ca31f7f15b42a182a44b44f" resname="retour">
+        <source>retour</source>
+        <target>__retour</target>
+      </trans-unit>
+      <trans-unit id="444bcb3a3fcf8389296c49467f27e1d6" resname="ok">
+        <source>ok</source>
+        <target>__ok</target>
+      </trans-unit>
+      <trans-unit id="de8c30b93fb9be74f75236a6738ce8a0" resname="admin.tooltip">
+        <source>admin.tooltip</source>
+        <target>__admin.tooltip</target>
+      </trans-unit>
+      <trans-unit id="762e60993999b33bc3f47d584c303bfa" resname="account.tooltip">
+        <source>account.tooltip</source>
+        <target>__account.tooltip</target>
+      </trans-unit>
+      <trans-unit id="58b0ea8708490caeb391bcd861ca3ff4" resname="forum.tooltip">
+        <source>forum.tooltip</source>
+        <target>__forum.tooltip</target>
+      </trans-unit>
+      <trans-unit id="f9cdce1229664dcdf1d11ec12e4aa307" resname="help.tooltip">
+        <source>help.tooltip</source>
+        <target>__help.tooltip</target>
+      </trans-unit>
+      <trans-unit id="9a86a071b0a4ee6d7140704f22b6e60b" resname="logout.tooltip">
+        <source>logout.tooltip</source>
+        <target>__logout.tooltip</target>
+      </trans-unit>
+      <trans-unit id="8646d825cfd2699c585148ab72e83466" resname="login.tooltip">
+        <source>login.tooltip</source>
+        <target>__login.tooltip</target>
+      </trans-unit>
+      <trans-unit id="9cde265fed02eabfa721d4c492b491a6" resname="login.btn">
+        <source>login.btn</source>
+        <target>__login.btn</target>
+      </trans-unit>
+      <trans-unit id="3c88086f989119545bee103f557c637c" resname="register.btn">
+        <source>register.btn</source>
+        <target>__register.btn</target>
+      </trans-unit>
+      <trans-unit id="5958a604ed3dce988ff600b265cd08c3" resname="participants">
+        <source>participants</source>
+        <target>__participants</target>
+      </trans-unit>
+      <trans-unit id="5946f8a3423ca4700e23d9ba3b5f4822" resname="éliminés">
+        <source>éliminés</source>
+        <target>__éliminés</target>
+      </trans-unit>
+      <trans-unit id="f2db8fbfdf261658aa5e3963389c9a8d" resname="espions">
+        <source>espions</source>
+        <target>__espions</target>
+      </trans-unit>
+      <trans-unit id="3a39452df3db5eeae4fc14ec3320663b" resname="session.ranking">
+        <source>session.ranking</source>
+        <target>__session.ranking</target>
+      </trans-unit>
+      <trans-unit id="411d825a6be58de0a6784853b4a4454b" resname="user.pseudo">
+        <source>user.pseudo</source>
+        <target>__user.pseudo</target>
+      </trans-unit>
+      <trans-unit id="c614cfae5fecdc58a14814200a535b69" resname="user.nbkill">
+        <source>user.nbkill</source>
+        <target>__user.nbkill</target>
+      </trans-unit>
+      <trans-unit id="2acd8780e40f59bdd9cac915873dd581" resname="s'inscrire">
+        <source>s'inscrire</source>
+        <target>__s'inscrire</target>
+      </trans-unit>
+      <trans-unit id="09285a1820716a46e01ebba37b11ff19" resname="session.notifications">
+        <source>session.notifications</source>
+        <target>__session.notifications</target>
+      </trans-unit>
+      <trans-unit id="ea627c099f1477a9503a33084cf191a4" resname="session.user.killed">
+        <source>session.user.killed</source>
+        <target>__session.user.killed</target>
+      </trans-unit>
+      <trans-unit id="7fd11a2f5589781c3cdd6927691faca2" resname="session.user.not-validated">
+        <source>session.user.not-validated</source>
+        <target>__session.user.not-validated</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
